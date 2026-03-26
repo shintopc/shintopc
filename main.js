@@ -4,6 +4,49 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // ---- tsParticles (Interactive Hero Background) ----
+  const tsParticlesContainer = document.getElementById('tsparticles');
+  if (tsParticlesContainer && window.tsParticles) {
+    tsParticles.load("tsparticles", {
+      particles: {
+        number: { value: 60, density: { enable: true, value_area: 800 } },
+        color: { value: "#ffffff" },
+        links: {
+          enable: true,
+          distance: 150,
+          color: "#ffffff",
+          opacity: 0.15,
+          width: 1
+        },
+        shape: { type: "circle" },
+        opacity: { value: 0.3, random: true },
+        size: { value: 2, random: true },
+        move: {
+          enable: true,
+          speed: 1,
+          direction: "none",
+          random: true,
+          straight: false,
+          out_mode: "out",
+          bounce: false,
+        }
+      },
+      interactivity: {
+        detect_on: "window",
+        events: {
+          onhover: { enable: true, mode: "grab" },
+          onclick: { enable: true, mode: "push" },
+          resize: true
+        },
+        modes: {
+          grab: { distance: 200, line_linked: { opacity: 0.4 } },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
+    });
+  }
+
   // ---- Dark / Light Mode Toggle ----
   const themeToggle = document.getElementById('theme-toggle');
   const html = document.documentElement;
