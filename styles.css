@@ -581,6 +581,19 @@ html.light .text-slate-500 {
   color: #777 !important;
 }
 
+html.light .text-primary {
+  color: #4f46e5 !important; /* Indigo for light mode */
+}
+
+/* Badge background and text overrides */
+html.light .bg-secondary-container {
+  background-color: rgba(139, 92, 246, 0.15) !important;
+}
+
+html.light .text-on-secondary-container {
+  color: #6d28d9 !important; /* Deep violet for readability */
+}
+
 /* Card text inside dark overlays should stay white */
 html.light .bg-gradient-to-t .text-on-surface-variant,
 html.light .bg-gradient-to-t h3,
