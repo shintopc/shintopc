@@ -246,20 +246,25 @@
                 <div class="absolute top-0 right-10 w-24 h-1 bg-gradient-to-r from-primary to-transparent"></div>
                 
                 <h3 class="text-2xl font-bold mb-8 font-headline">Send a Transmission</h3>
-                <form class="space-y-6" onsubmit="event.preventDefault(); alert('Transmission Sent to ShintoPC Labs!');">
+                <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+                    <!-- Replace with your Access Key from Web3Forms -->
+                    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                    <input type="hidden" name="subject" value="New Transmission via ShintoPC Labs">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                    
                     <div class="grid sm:grid-cols-2 gap-6">
                         <div class="space-y-2">
                             <label class="label-sm text-on-surface-variant uppercase tracking-widest text-xs font-semibold px-1">Full Name</label>
-                            <input class="w-full bg-surface-container-lowest border border-white/10 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary text-on-surface py-3.5 px-4 transition-all" placeholder="Enter name" type="text" required/>
+                            <input name="name" class="w-full bg-surface-container-lowest border border-white/10 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary text-on-surface py-3.5 px-4 transition-all" placeholder="Enter name" type="text" required/>
                         </div>
                         <div class="space-y-2">
                             <label class="label-sm text-on-surface-variant uppercase tracking-widest text-xs font-semibold px-1">Email Node</label>
-                            <input class="w-full bg-surface-container-lowest border border-white/10 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary text-on-surface py-3.5 px-4 transition-all" placeholder="your@email.com" type="email" required/>
+                            <input name="email" class="w-full bg-surface-container-lowest border border-white/10 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary text-on-surface py-3.5 px-4 transition-all" placeholder="your@email.com" type="email" required/>
                         </div>
                     </div>
                     <div class="space-y-2">
                         <label class="label-sm text-on-surface-variant uppercase tracking-widest text-xs font-semibold px-1">Message Payload</label>
-                        <textarea class="w-full bg-surface-container-lowest border border-white/10 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary text-on-surface py-4 px-4 transition-all resize-none" placeholder="Provide details..." rows="5" required></textarea>
+                        <textarea name="message" class="w-full bg-surface-container-lowest border border-white/10 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary text-on-surface py-4 px-4 transition-all resize-none" placeholder="Provide details..." rows="5" required></textarea>
                     </div>
                     <button class="w-full mt-4 py-4 bg-gradient-to-r from-primary to-primary-dim text-on-primary-fixed font-black uppercase tracking-widest text-sm rounded-xl hover:shadow-[0_0_30px_rgba(157,167,255,0.4)] hover:brightness-110 active:scale-[0.98] transition-all" type="submit">
                         Initialize Transfer
