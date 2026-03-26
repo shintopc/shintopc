@@ -11,63 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     
     <script src="./tailwind-config.js"></script>
-    
-    <style>
-        body {
-            background-color: #0e0e12;
-            color: #fcf8fe;
-            min-height: 100vh;
-        }
-        .material-symbols-outlined {
-            font-variation-settings: 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .glass-card {
-            background: rgba(37, 37, 43, 0.4);
-            backdrop-filter: blur(16px);
-            border: 0.5px solid rgba(72, 71, 76, 0.2);
-        }
-        .primary-gradient {
-            background: linear-gradient(135deg, #9da7ff 0%, #4e62ff 100%);
-        }
-        .text-glow {
-            text-shadow: 0 0 20px rgba(157, 167, 255, 0.3);
-        }
-        .text-gradient {
-            background: linear-gradient(135deg, #9da7ff 0%, #4e62ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        #mobile-menu {
-            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-            opacity: 0;
-            pointer-events: none;
-            transform: translateY(-10px);
-        }
-        #mobile-menu.open {
-            opacity: 1;
-            pointer-events: auto;
-            transform: translateY(0);
-        }
-        
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-         /* Hide scrollbar for carousel but keep functional */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-    </style>
+    <link href="./styles.css" rel="stylesheet"/>
 </head>
 <body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary">
 
@@ -84,11 +28,19 @@
             <a class="text-slate-400 hover:text-white transition-colors duration-300" href="./index.html#features">Features</a>
             <a class="text-slate-400 hover:text-white transition-colors duration-300" href="./privacy.html">Privacy</a>
             <a class="text-slate-400 hover:text-white transition-colors duration-300" href="./index.html#contact">Contact</a>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                <span class="material-symbols-outlined text-lg">light_mode</span>
+            </button>
         </div>
         
-        <button id="hamburger-btn" aria-label="Toggle Menu" class="md:hidden text-white p-2">
-            <span class="material-symbols-outlined text-3xl">menu</span>
-        </button>
+        <div class="flex md:hidden items-center gap-3">
+            <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Toggle Theme" onclick="document.getElementById('theme-toggle').click()">
+                <span class="material-symbols-outlined text-lg">light_mode</span>
+            </button>
+            <button id="hamburger-btn" aria-label="Toggle Menu" class="text-white p-2">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </div>
     </div>
     
     <div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full bg-[#0e0e12]/95 backdrop-blur-[20px] border-b border-white/10 shadow-xl flex flex-col items-center py-6 gap-6">
@@ -101,7 +53,7 @@
 
 <main class="pt-32 pb-24">
     <!-- Hero Section -->
-    <section class="max-w-[1440px] mx-auto px-6 md:px-10 grid grid-cols-1 lg:grid-cols-12 gap-12 mb-32 items-center">
+    <section class="max-w-[1440px] mx-auto px-6 md:px-10 grid grid-cols-1 lg:grid-cols-12 gap-12 mb-32 items-center relative">
         <div class="lg:col-span-7 fade-in">
             <a href="./index.html" class="label-sm uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary mb-6 flex items-center gap-2 font-semibold w-fit transition-colors">
                 <span class="material-symbols-outlined text-sm">arrow_back</span>
@@ -115,7 +67,7 @@
                 The ultimate companion for telemetry. Real-time GPS tracking, HUD mode for nighttime driving, and analytics presented in a high-contrast, premium dark environment.
             </p>
             <div class="flex flex-wrap gap-4">
-                <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 bg-surface-container-highest border border-outline-variant/20 px-6 py-4 rounded-xl hover:bg-surface-bright hover:border-primary/50 transition-all active:scale-95 group">
+                <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 glass-panel px-6 py-4 rounded-xl hover:border-primary/50 transition-all active:scale-95 group btn-ripple">
                     <span class="material-symbols-outlined text-4xl text-white group-hover:text-primary transition-colors" style="font-variation-settings: 'FILL' 1;">play_apps</span>
                     <div class="text-left">
                         <p class="text-[0.65rem] uppercase tracking-widest text-on-surface-variant font-bold mb-0.5">Get it on</p>
@@ -124,11 +76,11 @@
                 </a>
             </div>
         </div>
-        <div class="lg:col-span-5 relative fade-in hidden md:block">
+        <div class="lg:col-span-5 relative slide-right mt-8 lg:mt-0">
             <div class="absolute top-0 right-0 w-80 h-80 bg-primary/20 blur-[120px] rounded-full pointer-events-none"></div>
             <div class="absolute bottom-0 left-0 w-80 h-80 bg-tertiary/10 blur-[120px] rounded-full pointer-events-none"></div>
-            <div class="relative glass-card p-4 rounded-[2.5rem] rotate-3 shadow-2xl transition-transform hover:rotate-0 duration-700">
-                <img alt="Kinetix Speedometer App Interface" class="rounded-[2rem] w-full h-[600px] object-cover" src="./assets/kinetix-bg.png" />
+            <div class="relative glass-card p-4 rounded-[2.5rem] shadow-2xl transition-transform hover:rotate-0 duration-700 float-anim neon-glow-primary">
+                <img alt="Kinetix Speedometer App Interface" class="rounded-[2rem] w-full h-auto md:h-[600px] object-cover" src="./assets/kinetix-bg.png" />
             </div>
         </div>
     </section>
@@ -137,7 +89,7 @@
     <section class="max-w-[1440px] mx-auto px-6 md:px-10 mb-32">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-auto md:auto-rows-[240px]">
             <!-- Main Highlight -->
-            <div class="md:col-span-8 md:row-span-2 glass-card rounded-[2.5rem] p-10 flex flex-col justify-between relative overflow-hidden group fade-in">
+            <div class="md:col-span-8 md:row-span-2 glass-card rounded-[2.5rem] p-10 flex flex-col justify-between relative overflow-hidden group scale-in">
                 <div class="z-10 bg-[#0e0e12]/60 p-6 rounded-2xl backdrop-blur-md max-w-md border border-white/5">
                     <span class="label-sm bg-primary/10 text-primary px-3 py-1.5 rounded-full mb-4 inline-block font-bold text-xs uppercase">Engine Features</span>
                     <h3 class="text-4xl font-bold font-headline mb-4">Precision <br/>Telemetry</h3>
@@ -149,15 +101,15 @@
             </div>
 
             <!-- Secondary 1 -->
-            <div class="md:col-span-4 md:row-span-1 glass-card rounded-[2.5rem] p-8 flex flex-col justify-center border-l-4 border-l-tertiary fade-in delay-100 shadow-xl">
-                <span class="material-symbols-outlined text-tertiary text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">speed</span>
+            <div class="md:col-span-4 md:row-span-1 glass-card rounded-[2.5rem] p-8 flex flex-col justify-center border-l-4 border-l-tertiary fade-in delay-100 hover:-translate-y-2 transition-all duration-500 group">
+                <span class="material-symbols-outlined text-tertiary text-4xl mb-4 group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">speed</span>
                 <h4 class="text-2xl font-bold font-headline mb-2">Real-Time Metrics</h4>
                 <p class="text-sm text-on-surface-variant leading-relaxed">0-100 analytics, trip history, and customizable gauges.</p>
             </div>
 
             <!-- Secondary 2 -->
-            <div class="md:col-span-4 md:row-span-1 glass-card rounded-[2.5rem] p-8 flex flex-col justify-center border-l-4 border-l-secondary fade-in delay-200 shadow-xl">
-                <span class="material-symbols-outlined text-secondary text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">contrast</span>
+            <div class="md:col-span-4 md:row-span-1 glass-card rounded-[2.5rem] p-8 flex flex-col justify-center border-l-4 border-l-secondary fade-in delay-200 hover:-translate-y-2 transition-all duration-500 group">
+                <span class="material-symbols-outlined text-secondary text-4xl mb-4 group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">contrast</span>
                 <h4 class="text-2xl font-bold font-headline mb-2">HUD Mode Projection</h4>
                 <p class="text-sm text-on-surface-variant leading-relaxed">Mirror your display for safe nighttime visibility.</p>
             </div>
@@ -168,23 +120,32 @@
     <section class="mb-32">
         <div class="max-w-[1440px] mx-auto px-6 md:px-10 mb-12 flex justify-between items-end fade-in">
             <div>
-                <h2 class="text-4xl md:text-5xl font-black font-headline tracking-tight mb-2">INTERFACE</h2>
+                <h2 class="text-4xl md:text-5xl font-black font-headline tracking-tight mb-2 text-glow">INTERFACE</h2>
                 <p class="text-on-surface-variant uppercase text-xs tracking-[0.1em] font-semibold text-primary">Visual precision at every layer</p>
+            </div>
+            <!-- Carousel Arrows -->
+            <div class="hidden sm:flex gap-3">
+                <button id="carousel-left" class="carousel-arrow" aria-label="Scroll Left">
+                    <span class="material-symbols-outlined">chevron_left</span>
+                </button>
+                <button id="carousel-right" class="carousel-arrow" aria-label="Scroll Right">
+                    <span class="material-symbols-outlined">chevron_right</span>
+                </button>
             </div>
         </div>
         
         <!-- Horizontally scrollable container -->
         <div class="flex gap-6 overflow-x-auto px-6 md:px-10 no-scrollbar pb-8 snap-x" id="gallery-carousel">
-            <div class="flex-shrink-0 w-[280px] md:w-[320px] glass-card p-2 rounded-[2.5rem] snap-start fade-in">
+            <div class="flex-shrink-0 w-[280px] md:w-[320px] glass-card p-2 rounded-[2.5rem] snap-start scale-in hover:-translate-y-2 transition-all duration-500">
                 <img alt="App Interface 1" class="rounded-[2rem] h-[580px] w-full object-cover shadow-inner" src="./assets/6.jpg" />
             </div>
-            <div class="flex-shrink-0 w-[280px] md:w-[320px] glass-card p-2 rounded-[2.5rem] snap-start fade-in delay-100">
+            <div class="flex-shrink-0 w-[280px] md:w-[320px] glass-card p-2 rounded-[2.5rem] snap-start scale-in hover:-translate-y-2 transition-all duration-500">
                 <img alt="App Interface 2" class="rounded-[2rem] h-[580px] w-full object-cover shadow-inner" src="./assets/1.jpg" />
             </div>
-            <div class="flex-shrink-0 w-[280px] md:w-[320px] glass-card p-2 rounded-[2.5rem] snap-start fade-in delay-200">
+            <div class="flex-shrink-0 w-[280px] md:w-[320px] glass-card p-2 rounded-[2.5rem] snap-start scale-in hover:-translate-y-2 transition-all duration-500">
                 <img alt="App Interface 3" class="rounded-[2rem] h-[580px] w-full object-cover shadow-inner" src="./assets/2.jpg" />
             </div>
-            <div class="flex-shrink-0 w-[280px] md:w-[320px] glass-card p-2 rounded-[2.5rem] snap-start fade-in delay-300">
+            <div class="flex-shrink-0 w-[280px] md:w-[320px] glass-card p-2 rounded-[2.5rem] snap-start scale-in hover:-translate-y-2 transition-all duration-500">
                 <img alt="App Interface 4" class="rounded-[2rem] h-[580px] w-full object-cover shadow-inner" src="./assets/5.jpg" />
             </div>
         </div>
@@ -208,36 +169,20 @@
     </div>
 </footer>
 
+<!-- Shared Script -->
+<script src="./main.js"></script>
+
+<!-- Mobile theme toggle sync -->
 <script>
-    // Hamburger menu toggle
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    hamburgerBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('open');
-        const icon = hamburgerBtn.querySelector('span');
-        if (mobileMenu.classList.contains('open')) {
-            icon.innerText = 'close';
-            icon.classList.add('text-primary');
-        } else {
-            icon.innerText = 'menu';
-            icon.classList.remove('text-primary');
-        }
-    });
-
-    // Intersection Observer for scroll animations
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { 
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px' 
-    });
-
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  const mobileTgl = document.getElementById('theme-toggle-mobile');
+  if (mobileTgl) {
+    const updateMobileIcon = () => {
+      const icon = mobileTgl.querySelector('.material-symbols-outlined');
+      if (icon) icon.textContent = document.documentElement.classList.contains('light') ? 'dark_mode' : 'light_mode';
+    };
+    updateMobileIcon();
+    new MutationObserver(updateMobileIcon).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+  }
 </script>
 </body>
 </html>

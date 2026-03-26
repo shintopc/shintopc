@@ -15,50 +15,8 @@
     <!-- Tailwind Config -->
     <script src="./tailwind-config.js"></script>
     
-    <!-- Custom Styles -->
-    <style>
-        .glass-panel {
-            background: rgba(37, 37, 43, 0.4);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(72, 71, 76, 0.15);
-        }
-        .hero-gradient {
-            background: radial-gradient(circle at 50% 50%, rgba(77, 97, 255, 0.15) 0%, transparent 70%);
-        }
-        .text-gradient {
-            background: linear-gradient(135deg, #9da7ff 0%, #4e62ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        body { min-height: 100vh; }
-        
-        /* Mobile menu transition */
-        #mobile-menu {
-            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-            opacity: 0;
-            pointer-events: none;
-            transform: translateY(-10px);
-        }
-        #mobile-menu.open {
-            opacity: 1;
-            pointer-events: auto;
-            transform: translateY(0);
-        }
-        
-        /* Fade in animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .material-symbols-outlined {
-            font-variation-settings: 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-    </style>
+    <!-- Shared Styles -->
+    <link href="./styles.css" rel="stylesheet"/>
 </head>
 <body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary">
 
@@ -76,15 +34,23 @@
             <a class="text-slate-400 hover:text-white transition-colors duration-300" href="#features">Features</a>
             <a class="text-slate-400 hover:text-white transition-colors duration-300" href="./privacy.html">Privacy</a>
             <a class="text-slate-400 hover:text-white transition-colors duration-300" href="#contact">Contact</a>
-            <a href="#apps" class="bg-gradient-to-br from-primary to-primary-dim px-6 py-2 rounded-lg text-on-primary-fixed font-bold text-sm uppercase tracking-wider hover:shadow-[0_0_20px_rgba(157,167,255,0.4)] transition-all active:scale-95">
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                <span class="material-symbols-outlined text-lg">light_mode</span>
+            </button>
+            <a href="#apps" class="bg-gradient-to-br from-primary to-primary-dim px-6 py-2 rounded-lg text-on-primary-fixed font-bold text-sm uppercase tracking-wider hover:shadow-[0_0_20px_rgba(157,167,255,0.4)] transition-all active:scale-95 btn-ripple btn-glow">
                 View Portfolio
             </a>
         </div>
         
-        <!-- Mobile Hamburger Button -->
-        <button id="hamburger-btn" aria-label="Toggle Menu" class="md:hidden text-white p-2">
-            <span class="material-symbols-outlined text-3xl">menu</span>
-        </button>
+        <!-- Mobile Controls -->
+        <div class="flex md:hidden items-center gap-3">
+            <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Toggle Theme" onclick="document.getElementById('theme-toggle').click()">
+                <span class="material-symbols-outlined text-lg">light_mode</span>
+            </button>
+            <button id="hamburger-btn" aria-label="Toggle Menu" class="text-white p-2">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </div>
     </div>
     
     <!-- Mobile Menu -->
@@ -99,17 +65,20 @@
 <main>
     <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center pt-24 pb-20 overflow-hidden hero-gradient">
-        <div class="max-w-[1440px] mx-auto px-6 md:px-10 grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Animated Background -->
+        <div class="hero-bg-animated"></div>
+        
+        <div class="max-w-[1440px] mx-auto px-6 md:px-10 grid lg:grid-cols-2 gap-16 items-center relative z-10">
             <div class="z-10 fade-in">
-                <span class="label-sm bg-secondary-container text-on-secondary-container px-4 py-1.5 rounded-full uppercase tracking-widest font-bold mb-6 inline-block shadow-lg text-[10px]">Engineering Excellence</span>
-                <h1 class="text-6xl md:text-7xl lg:text-8xl font-black font-headline tracking-tighter leading-none mb-6">
+                <span class="label-sm bg-secondary-container text-on-secondary-container px-4 py-1.5 rounded-full uppercase tracking-widest font-bold mb-6 inline-block shadow-lg text-[10px] neon-glow-secondary">Engineering Excellence</span>
+                <h1 class="text-6xl md:text-7xl lg:text-8xl font-black font-headline tracking-tighter leading-none mb-6 text-glow">
                     Crafting the <br/><span class="text-gradient">Future</span> of Mobile
                 </h1>
                 <p class="text-on-surface-variant text-lg md:text-xl max-w-lg mb-10 leading-relaxed font-light">
                     ShintoPC Labs builds high-performance mobile experiences with precision. Creators of Kinetix Speedometer and UPI Voice Alert.
                 </p>
                 <div class="flex flex-wrap gap-4">
-                    <a href="#apps" class="bg-gradient-to-br from-primary to-primary-dim px-8 py-4 rounded-xl text-on-primary-fixed font-bold flex items-center gap-3 hover:shadow-lg transition-all">
+                    <a href="#apps" class="bg-gradient-to-br from-primary to-primary-dim px-8 py-4 rounded-xl text-on-primary-fixed font-bold flex items-center gap-3 hover:shadow-[0_0_30px_rgba(157,167,255,0.4)] transition-all btn-ripple btn-glow">
                         <span class="material-symbols-outlined text-xl">explore</span>
                         Explore Apps
                     </a>
@@ -117,10 +86,9 @@
             </div>
             <div class="relative fade-in mt-12 lg:mt-0 px-2 lg:px-0">
                 <div class="absolute -top-20 -right-20 w-96 h-96 bg-secondary/20 blur-[120px] rounded-full pointer-events-none hidden md:block"></div>
-                <div class="glass-panel p-4 rounded-[2.5rem] rotate-3 hover:rotate-0 transition-transform duration-700 shadow-2xl relative z-10 border border-white/10 group cursor-pointer" onclick="window.location.href='./kinetix-speedometer.html'">
+                <div class="glass-panel p-4 rounded-[2.5rem] hover:rotate-0 transition-all duration-700 shadow-2xl relative z-10 border border-white/10 group cursor-pointer float-anim neon-glow-primary" onclick="window.location.href='./kinetix-speedometer.html'">
                     <!-- Kinetix Speedometer Hero Mockup -->
                     <img alt="Kinetix Speedometer Interface" class="rounded-[2rem] w-full shadow-inner opacity-80 group-hover:opacity-100 transition-opacity" src="./assets/hero.png" />
-
                 </div>
             </div>
         </div>
@@ -132,9 +100,9 @@
             <div class="mb-16 fade-in flex flex-col sm:flex-row sm:items-end justify-between gap-6">
                 <div>
                     <span class="label-sm text-primary uppercase tracking-[0.2em] font-bold text-xs">Portfolio</span>
-                    <h2 class="text-4xl md:text-5xl font-black font-headline tracking-tighter mt-2">Production Apps</h2>
+                    <h2 class="text-4xl md:text-5xl font-black font-headline tracking-tighter mt-2 text-glow">Production Apps</h2>
                 </div>
-                <a href="https://play.google.com/store/apps/developer?id=Shinto+PC" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 bg-surface-container-highest border border-white/10 px-5 py-3 rounded-xl hover:bg-surface-bright hover:border-primary/50 transition-all active:scale-95 group w-fit">
+                <a href="https://play.google.com/store/apps/developer?id=Shinto+PC" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 glass-panel px-5 py-3 rounded-xl hover:border-primary/50 transition-all active:scale-95 group w-fit btn-ripple">
                     <span class="material-symbols-outlined text-3xl text-white group-hover:text-primary transition-colors" style="font-variation-settings: 'FILL' 1;">play_apps</span>
                     <div class="text-left">
                         <p class="text-[0.6rem] uppercase tracking-widest text-on-surface-variant font-bold mb-0.5">Get on</p>
@@ -145,63 +113,63 @@
             
             <div class="grid md:grid-cols-12 gap-8">
                 <!-- Kinetix Speedometer Card -->
-                <a href="./kinetix-speedometer.html" class="md:col-span-8 glass-panel p-2 rounded-[2.5rem] overflow-hidden group fade-in block">
+                <a href="./kinetix-speedometer.html" class="md:col-span-8 glass-panel p-2 rounded-[2.5rem] overflow-hidden group scale-in block hover:-translate-y-2 transition-all duration-500">
                     <div class="relative h-[480px]">
                         <img alt="Kinetix Speedometer" class="w-full h-full object-cover rounded-[2rem] opacity-60 group-hover:scale-105 group-hover:opacity-80 transition-all duration-700" src="./assets/kinetix-bg.png" />
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0e0e12] via-[#0e0e12]/80 to-transparent rounded-[2rem] flex flex-col justify-end p-8 md:p-12">
                             <div class="flex items-center gap-5 mb-6">
-                                <div class="w-16 h-16 glass-panel border border-tertiary/20 rounded-2xl flex items-center justify-center text-tertiary shadow-[0_0_20px_rgba(0,212,236,0.2)]">
+                                <div class="w-16 h-16 glass-panel border border-tertiary/20 rounded-2xl flex items-center justify-center text-tertiary neon-glow-tertiary">
                                     <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">speed</span>
                                 </div>
                                 <h3 class="text-3xl md:text-4xl font-bold font-headline">Kinetix Speedometer</h3>
                             </div>
                             <p class="text-on-surface-variant max-w-lg mb-8 leading-relaxed text-lg">Advanced GPS tracking, real-time analytics, and sleek HUD interfaces. Precision tracking engineered for performance enthusiasts.</p>
-                            <span class="w-fit px-8 py-3 bg-white text-black rounded-xl font-bold text-sm uppercase tracking-wider hover:bg-slate-200 transition-colors inline-block">View Project Details</span>
+                            <span class="w-fit px-8 py-3 bg-white text-black rounded-xl font-bold text-sm uppercase tracking-wider hover:bg-slate-200 transition-colors inline-block btn-ripple">View Project Details</span>
                         </div>
                     </div>
                 </a>
 
                 <!-- UPI Voice Alert Card -->
-                <div class="md:col-span-4 glass-panel p-10 rounded-[2.5rem] flex flex-col justify-between border-t border-t-secondary/30 relative overflow-hidden group hover:bg-surface-container/50 transition-colors fade-in delay-100">
+                <div class="md:col-span-4 glass-panel p-10 rounded-[2.5rem] flex flex-col justify-between border-t border-t-secondary/30 relative overflow-hidden group hover:bg-surface-container/50 hover:-translate-y-2 transition-all duration-500 scale-in">
                     <div class="absolute inset-0 bg-gradient-to-b from-secondary/5 to-transparent pointer-events-none"></div>
                     <div class="relative z-10">
-                        <div class="w-16 h-16 bg-gradient-to-br from-secondary/20 to-secondary/5 rounded-2xl flex items-center justify-center text-secondary mb-8 border border-secondary/20">
+                        <div class="w-16 h-16 bg-gradient-to-br from-secondary/20 to-secondary/5 rounded-2xl flex items-center justify-center text-secondary mb-8 border border-secondary/20 neon-glow-secondary">
                             <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">record_voice_over</span>
                         </div>
                         <h3 class="text-3xl font-bold font-headline mb-4">UPI Voice Alert</h3>
                         <p class="text-on-surface-variant leading-relaxed mb-8">Instant multi-lingual audio notifications for merchant UPI payments. Unbreakable reliability handling thousands of daily transactions.</p>
                     </div>
-
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="py-24 px-6 md:px-10 bg-surface-container-lowest" id="features">
-        <div class="max-w-[1440px] mx-auto">
+    <section class="py-24 px-6 md:px-10 bg-surface-container-lowest relative overflow-hidden" id="features">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 blur-[200px] rounded-full pointer-events-none"></div>
+        <div class="max-w-[1440px] mx-auto relative z-10">
             <div class="text-center mb-20 fade-in">
-                <h2 class="text-4xl md:text-5xl font-black font-headline tracking-tighter mb-4">Core Philosophy</h2>
+                <h2 class="text-4xl md:text-5xl font-black font-headline tracking-tighter mb-4 text-glow">Core Philosophy</h2>
                 <p class="text-on-surface-variant uppercase tracking-widest text-xs font-bold text-primary">Standard in every app</p>
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="p-10 rounded-3xl bg-surface-container hover:bg-surface-container-high transition-transform hover:-translate-y-2 border border-white/5 fade-in shadow-xl">
-                    <span class="material-symbols-outlined text-5xl text-primary mb-6" style="font-variation-settings: 'FILL' 1;">bolt</span>
+                <div class="p-10 rounded-3xl glass-panel hover:-translate-y-3 transition-all duration-500 fade-in group">
+                    <span class="material-symbols-outlined text-5xl text-primary mb-6 group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">bolt</span>
                     <h3 class="text-xl font-bold mb-3 font-headline">Ultra Fast</h3>
                     <p class="text-sm text-on-surface-variant leading-relaxed">Sub-second loads, minimized binary sizes, and optimized rendering engines.</p>
                 </div>
-                <div class="p-10 rounded-3xl bg-surface-container hover:bg-surface-container-high transition-transform hover:-translate-y-2 border border-white/5 fade-in delay-100 shadow-xl">
-                    <span class="material-symbols-outlined text-5xl text-secondary mb-6" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+                <div class="p-10 rounded-3xl glass-panel hover:-translate-y-3 transition-all duration-500 fade-in delay-100 group">
+                    <span class="material-symbols-outlined text-5xl text-secondary mb-6 group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">verified_user</span>
                     <h3 class="text-xl font-bold mb-3 font-headline">Rock Solid</h3>
                     <p class="text-sm text-on-surface-variant leading-relaxed">Built on robust architectural principles targeting 99.9% crash-free sessions.</p>
                 </div>
-                <div class="p-10 rounded-3xl bg-surface-container hover:bg-surface-container-high transition-transform hover:-translate-y-2 border border-white/5 fade-in delay-200 shadow-xl">
-                    <span class="material-symbols-outlined text-5xl text-tertiary mb-6" style="font-variation-settings: 'FILL' 1;">design_services</span>
+                <div class="p-10 rounded-3xl glass-panel hover:-translate-y-3 transition-all duration-500 fade-in delay-200 group">
+                    <span class="material-symbols-outlined text-5xl text-tertiary mb-6 group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">design_services</span>
                     <h3 class="text-xl font-bold mb-3 font-headline">Premium UX</h3>
                     <p class="text-sm text-on-surface-variant leading-relaxed">Design patterns prioritizing cognitive ease, fluid motion, and dark mode excellence.</p>
                 </div>
-                <div class="p-10 rounded-3xl bg-surface-container hover:bg-surface-container-high transition-transform hover:-translate-y-2 border border-white/5 fade-in delay-300 shadow-xl">
-                    <span class="material-symbols-outlined text-5xl text-error mb-6" style="font-variation-settings: 'FILL' 1;">update</span>
+                <div class="p-10 rounded-3xl glass-panel hover:-translate-y-3 transition-all duration-500 fade-in delay-300 group">
+                    <span class="material-symbols-outlined text-5xl text-error mb-6 group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">update</span>
                     <h3 class="text-xl font-bold mb-3 font-headline">Eternally Evolving</h3>
                     <p class="text-sm text-on-surface-variant leading-relaxed">Constant iteration driven by active telemetry and real user feedback loops.</p>
                 </div>
@@ -215,15 +183,15 @@
         <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-secondary/10 blur-[150px] pointer-events-none rounded-full"></div>
         
         <div class="max-w-[1440px] mx-auto grid lg:grid-cols-2 gap-20 items-center relative z-10">
-            <div class="fade-in">
+            <div class="slide-left">
                 <span class="label-sm text-secondary uppercase tracking-[0.2em] font-bold text-xs mb-4 block">Inquiries</span>
-                <h2 class="text-5xl md:text-7xl font-black font-headline tracking-tighter mb-8 leading-tight">Connect with <br/><span class="text-secondary">ShintoPC Labs</span></h2>
+                <h2 class="text-5xl md:text-7xl font-black font-headline tracking-tighter mb-8 leading-tight text-glow">Connect with <br/><span class="text-secondary">ShintoPC Labs</span></h2>
                 <p class="text-on-surface-variant text-lg mb-12 max-w-md leading-relaxed font-light">Whether you need dedicated technical support for our apps or have potential business inquiries, we're ready to communicate.</p>
                 
                 <div class="space-y-8">
-                    <img src="./assets/profile.jpg" alt="ShintoPC Profile" class="w-36 h-36 rounded-full border-4 border-primary/20 shadow-2xl object-cover object-top" />
+                    <img src="./assets/profile.jpg" alt="ShintoPC Profile" class="w-36 h-36 rounded-full border-4 border-primary/20 shadow-2xl object-cover object-top profile-glow" />
                     <div class="flex items-center gap-6">
-                        <div class="w-16 h-16 glass-panel rounded-2xl flex items-center justify-center text-primary border border-primary/20">
+                        <div class="w-16 h-16 glass-panel rounded-2xl flex items-center justify-center text-primary border border-primary/20 neon-glow-primary">
                             <span class="material-symbols-outlined text-2xl">mail</span>
                         </div>
                         <div>
@@ -243,12 +211,11 @@
                 </div>
             </div>
             
-            <div class="glass-panel p-8 md:p-12 rounded-[2.5rem] border border-white/10 fade-in shadow-2xl relative">
+            <div class="glass-panel p-8 md:p-12 rounded-[2.5rem] border border-white/10 slide-right shadow-2xl relative">
                 <div class="absolute top-0 right-10 w-24 h-1 bg-gradient-to-r from-primary to-transparent"></div>
                 
                 <h3 class="text-2xl font-bold mb-8 font-headline">Send a Transmission</h3>
                 <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
-                    <!-- Replace with your Access Key from Web3Forms -->
                     <input type="hidden" name="access_key" value="d0182054-0355-4dcb-b8d7-21df9f432e8a">
                     <input type="hidden" name="subject" value="New Transmission via ShintoPC Labs">
                     <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
@@ -256,18 +223,18 @@
                     <div class="grid sm:grid-cols-2 gap-6">
                         <div class="space-y-2">
                             <label class="label-sm text-on-surface-variant uppercase tracking-widest text-xs font-semibold px-1">Full Name</label>
-                            <input name="name" class="w-full bg-surface-container-lowest border border-white/10 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary text-on-surface py-3.5 px-4 transition-all" placeholder="Enter name" type="text" required/>
+                            <input name="name" class="w-full bg-surface-container-lowest border border-white/10 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_15px_rgba(157,167,255,0.2)] text-on-surface py-3.5 px-4 transition-all" placeholder="Enter name" type="text" required/>
                         </div>
                         <div class="space-y-2">
                             <label class="label-sm text-on-surface-variant uppercase tracking-widest text-xs font-semibold px-1">Email Node</label>
-                            <input name="email" class="w-full bg-surface-container-lowest border border-white/10 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary text-on-surface py-3.5 px-4 transition-all" placeholder="your@email.com" type="email" required/>
+                            <input name="email" class="w-full bg-surface-container-lowest border border-white/10 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_15px_rgba(157,167,255,0.2)] text-on-surface py-3.5 px-4 transition-all" placeholder="your@email.com" type="email" required/>
                         </div>
                     </div>
                     <div class="space-y-2">
                         <label class="label-sm text-on-surface-variant uppercase tracking-widest text-xs font-semibold px-1">Message Payload</label>
-                        <textarea name="message" class="w-full bg-surface-container-lowest border border-white/10 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary text-on-surface py-4 px-4 transition-all resize-none" placeholder="Provide details..." rows="5" required></textarea>
+                        <textarea name="message" class="w-full bg-surface-container-lowest border border-white/10 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_15px_rgba(157,167,255,0.2)] text-on-surface py-4 px-4 transition-all resize-none" placeholder="Provide details..." rows="5" required></textarea>
                     </div>
-                    <button class="w-full mt-4 py-4 bg-gradient-to-r from-primary to-primary-dim text-on-primary-fixed font-black uppercase tracking-widest text-sm rounded-xl hover:shadow-[0_0_30px_rgba(157,167,255,0.4)] hover:brightness-110 active:scale-[0.98] transition-all" type="submit">
+                    <button class="w-full mt-4 py-4 bg-gradient-to-r from-primary to-primary-dim text-on-primary-fixed font-black uppercase tracking-widest text-sm rounded-xl hover:shadow-[0_0_30px_rgba(157,167,255,0.4)] hover:brightness-110 active:scale-[0.98] transition-all btn-ripple btn-glow" type="submit">
                         Initialize Transfer
                     </button>
                 </form>
@@ -293,53 +260,20 @@
     </div>
 </footer>
 
-<!-- Interactivity Script -->
+<!-- Shared Script -->
+<script src="./main.js"></script>
+
+<!-- Mobile theme toggle sync -->
 <script>
-    // Hamburger menu toggle
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    hamburgerBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('open');
-        const icon = hamburgerBtn.querySelector('span');
-        if (mobileMenu.classList.contains('open')) {
-            icon.innerText = 'close';
-            icon.classList.add('text-primary');
-        } else {
-            icon.innerText = 'menu';
-            icon.classList.remove('text-primary');
-        }
-    });
-
-    mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.remove('open');
-            hamburgerBtn.querySelector('span').innerText = 'menu';
-            hamburgerBtn.querySelector('span').classList.remove('text-primary');
-        });
-    });
-
-    // Intersection Observer for scroll animations
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                // Optional: stop observing once it's visible so it doesn't animate out
-                // observer.unobserve(entry.target);
-            }
-        });
-    }, { 
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px' 
-    });
-
-    document.querySelectorAll('.fade-in').forEach((el, i) => {
-        // Add a slight stagger to children that don't already have explicit delays
-        if(!el.className.includes('delay-')) {
-            el.style.transitionDelay = `${(i % 3) * 100}ms`;
-        }
-        observer.observe(el);
-    });
+  const mobileTgl = document.getElementById('theme-toggle-mobile');
+  if (mobileTgl) {
+    const updateMobileIcon = () => {
+      const icon = mobileTgl.querySelector('.material-symbols-outlined');
+      if (icon) icon.textContent = document.documentElement.classList.contains('light') ? 'dark_mode' : 'light_mode';
+    };
+    updateMobileIcon();
+    new MutationObserver(updateMobileIcon).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+  }
 </script>
 </body>
 </html>

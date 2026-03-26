@@ -1,0 +1,187 @@
+/* ========================================
+   ShintoPC Labs — Shared Interactivity
+   ======================================== */
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  // ---- Dark / Light Mode Toggle ----
+  const themeToggle = document.getElementById('theme-toggle');
+  const html = document.documentElement;
+
+  // Restore saved preference
+  const savedTheme = localStorage.getItem('shintopc-theme');
+  if (savedTheme === 'light') {
+    html.classList.add('light');
+    html.classList.remove('dark');
+  }
+
+  if (themeToggle) {
+    // Update icon based on current mode
+    const updateIcon = () => {
+      const icon = themeToggle.querySelector('.material-symbols-outlined');
+      if (icon) {
+        icon.textContent = html.classList.contains('light') ? 'dark_mode' : 'light_mode';
+      }
+    };
+    updateIcon();
+
+    themeToggle.addEventListener('click', () => {
+      html.classList.toggle('light');
+      html.classList.toggle('dark');
+      localStorage.setItem('shintopc-theme', html.classList.contains('light') ? 'light' : 'dark');
+      updateIcon();
+    });
+  }
+
+  // ---- Hamburger Menu Toggle ----
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (hamburgerBtn && mobileMenu) {
+    hamburgerBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      const icon = hamburgerBtn.querySelector('span');
+      if (mobileMenu.classList.contains('open')) {
+        icon.innerText = 'close';
+        icon.classList.add('text-primary');
+      } else {
+        icon.innerText = 'menu';
+        icon.classList.remove('text-primary');
+      }
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        const icon = hamburgerBtn.querySelector('span');
+        icon.innerText = 'menu';
+        icon.classList.remove('text-primary');
+      });
+    });
+  }
+
+  // ---- Scroll Reveal (IntersectionObserver) ----
+  const revealElements = document.querySelectorAll('.fade-in, .slide-left, .slide-right, .scale-in');
+  
+  if (revealElements.length > 0) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealElements.forEach((el, i) => {
+      // Stagger children without explicit delays
+      if (!el.className.includes('delay-')) {
+        el.style.transitionDelay = `${(i % 4) * 80}ms`;
+      }
+      revealObserver.observe(el);
+    });
+  }
+
+  // ---- Button Ripple Effect ----
+  document.querySelectorAll('.btn-ripple').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      const circle = document.createElement('span');
+      circle.classList.add('ripple-circle');
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      circle.style.width = circle.style.height = size + 'px';
+      circle.style.left = (e.clientX - rect.left - size / 2) + 'px';
+      circle.style.top = (e.clientY - rect.top - size / 2) + 'px';
+      this.appendChild(circle);
+      circle.addEventListener('animationend', () => circle.remove());
+    });
+  });
+
+  // ---- Carousel Arrow Navigation ----
+  const carousel = document.getElementById('gallery-carousel');
+  const arrowLeft = document.getElementById('carousel-left');
+  const arrowRight = document.getElementById('carousel-right');
+
+  if (carousel) {
+    const scrollAmount = 340;
+
+    if (arrowLeft) {
+      arrowLeft.addEventListener('click', () => {
+        carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      });
+    }
+    if (arrowRight) {
+      arrowRight.addEventListener('click', () => {
+        carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      });
+    }
+
+    // Touch/swipe support
+    let startX = 0;
+    let scrollStart = 0;
+    let isDragging = false;
+
+    carousel.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].pageX;
+      scrollStart = carousel.scrollLeft;
+      isDragging = true;
+    }, { passive: true });
+
+    carousel.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      const diff = startX - e.touches[0].pageX;
+      carousel.scrollLeft = scrollStart + diff;
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', () => {
+      isDragging = false;
+    });
+
+    // Mouse drag support for desktop
+    carousel.addEventListener('mousedown', (e) => {
+      startX = e.pageX;
+      scrollStart = carousel.scrollLeft;
+      isDragging = true;
+      carousel.style.cursor = 'grabbing';
+      e.preventDefault();
+    });
+
+    carousel.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const diff = startX - e.pageX;
+      carousel.scrollLeft = scrollStart + diff;
+    });
+
+    carousel.addEventListener('mouseup', () => {
+      isDragging = false;
+      carousel.style.cursor = 'grab';
+    });
+
+    carousel.addEventListener('mouseleave', () => {
+      isDragging = false;
+      carousel.style.cursor = 'grab';
+    });
+
+    carousel.style.cursor = 'grab';
+  }
+
+  // ---- Navbar Scroll Enhancement ----
+  const navbar = document.getElementById('navbar');
+  if (navbar) {
+    const navInner = navbar.querySelector('div');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.scrollY;
+      if (currentScroll > 80) {
+        navbar.classList.add('navbar-scrolled');
+      } else {
+        navbar.classList.remove('navbar-scrolled');
+      }
+      lastScroll = currentScroll;
+    }, { passive: true });
+  }
+
+});
