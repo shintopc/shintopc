@@ -58,9 +58,19 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ---- Scroll Reveal (IntersectionObserver) ----
-  const revealElements = document.querySelectorAll('.fade-in, .slide-left, .slide-right, .scale-in');
+  const revealSelectors = '.fade-in, .slide-left, .slide-right, .scale-in, .glass-panel, .glass-card';
+  const revealElements = document.querySelectorAll(revealSelectors);
   
   if (revealElements.length > 0) {
+    // Auto-add fade-in class to glass elements that don't already have an animation class
+    revealElements.forEach(el => {
+      const hasAnim = el.classList.contains('fade-in') || el.classList.contains('slide-left') || 
+                      el.classList.contains('slide-right') || el.classList.contains('scale-in');
+      if (!hasAnim) {
+        el.classList.add('fade-in');
+      }
+    });
+
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -68,14 +78,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }, {
-      threshold: 0.12,
-      rootMargin: '0px 0px -40px 0px'
+      threshold: 0.1,
+      rootMargin: '0px 0px -30px 0px'
     });
 
-    revealElements.forEach((el, i) => {
-      // Stagger children without explicit delays
+    // Re-query after adding classes, apply stagger
+    document.querySelectorAll('.fade-in, .slide-left, .slide-right, .scale-in').forEach((el, i) => {
+      // Stagger siblings in the same parent for cascade effect
       if (!el.className.includes('delay-')) {
-        el.style.transitionDelay = `${(i % 4) * 80}ms`;
+        const parent = el.parentElement;
+        const siblings = parent ? Array.from(parent.querySelectorAll(':scope > .fade-in, :scope > .slide-left, :scope > .slide-right, :scope > .scale-in')) : [];
+        const indexInParent = siblings.indexOf(el);
+        el.style.transitionDelay = `${(indexInParent >= 0 ? indexInParent : i % 4) * 100}ms`;
       }
       revealObserver.observe(el);
     });
