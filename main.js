@@ -15,13 +15,27 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- tsParticles (Interactive Hero Background) ----
   const tsParticlesContainer = document.getElementById('tsparticles');
   
-  const initParticles = () => {
+  const initParticles = async () => {
     if (!tsParticlesContainer || !window.tsParticles) return;
     const isLight = html.classList.contains('light');
     const particleColor = isLight ? "#4f46e5" : "#ffffff"; // Indigo in light mode, white in dark
     const particleOpacity = isLight ? 0.5 : 0.3;
     const linkOpacity = isLight ? 0.3 : 0.15;
     
+    const existingContainer = tsParticles.dom().find(c => c.id === 'tsparticles');
+    
+    if (existingContainer) {
+      existingContainer.options.particles.color.value = particleColor;
+      existingContainer.options.particles.links.color = particleColor;
+      existingContainer.options.particles.opacity.value = particleOpacity;
+      existingContainer.options.particles.links.opacity = linkOpacity;
+      if (existingContainer.options.interactivity.modes.grab && existingContainer.options.interactivity.modes.grab.line_linked) {
+          existingContainer.options.interactivity.modes.grab.line_linked.opacity = linkOpacity + 0.2;
+      }
+      await existingContainer.refresh();
+      return;
+    }
+
     tsParticles.load("tsparticles", {
       particles: {
         number: { value: 60, density: { enable: true, value_area: 800 } },
