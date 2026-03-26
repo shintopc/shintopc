@@ -8,12 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const themeToggle = document.getElementById('theme-toggle');
   const html = document.documentElement;
 
-  // Restore saved preference
-  const savedTheme = localStorage.getItem('shintopc-theme');
-  if (savedTheme === 'light') {
-    html.classList.add('light');
-    html.classList.remove('dark');
-  }
+  // Always ensure dark mode is the default on page load
+  html.classList.remove('light');
+  html.classList.add('dark');
 
   if (themeToggle) {
     // Update icon based on current mode
