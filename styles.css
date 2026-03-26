@@ -377,43 +377,192 @@ html.light .text-glow {
   text-shadow: 0 0 20px rgba(52, 73, 233, 0.15);
 }
 
-/* Override Tailwind text/bg for light mode key elements */
-html.light .bg-\[\\#0e0e12\]\/70,
-html.light .bg-\[\\#0e0e12\]\/95 {
-  background-color: var(--bg-glass) !important;
+/* Global text color overrides for light mode */
+html.light body {
+  color: #1a1a1f;
 }
 
-html.light [class*="text-white"] {
-  color: var(--text-primary);
+html.light h1,
+html.light h2,
+html.light h3,
+html.light h4,
+html.light h5,
+html.light h6 {
+  color: #1a1a1f !important;
 }
 
-html.light [class*="text-slate-400"] {
-  color: var(--text-secondary);
+html.light p,
+html.light span,
+html.light a,
+html.light label,
+html.light li,
+html.light div {
+  color: inherit;
 }
 
-html.light [class*="text-slate-300"] {
-  color: var(--text-secondary);
+/* Navbar */
+html.light nav {
+  background: rgba(245, 245, 247, 0.85) !important;
+  border-bottom-color: rgba(0, 0, 0, 0.06) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
-html.light [class*="text-slate-500"] {
-  color: var(--text-secondary);
+html.light nav a {
+  color: #555 !important;
 }
 
-html.light [class*="bg-surface-container-lowest"] {
-  background-color: var(--bg-surface-low) !important;
+html.light nav a:hover {
+  color: #1a1a1f !important;
 }
 
-html.light [class*="bg-surface-container"] {
-  background-color: var(--bg-surface) !important;
+html.light nav .text-\[\\#4D61FF\] {
+  color: #3449e9 !important;
 }
 
-html.light [class*="border-white\\/"] {
-  border-color: var(--border-glass) !important;
+/* Mobile menu */
+html.light #mobile-menu {
+  background: rgba(245, 245, 247, 0.97) !important;
+  border-bottom-color: rgba(0, 0, 0, 0.06) !important;
 }
 
+html.light #mobile-menu a {
+  color: #555 !important;
+}
+
+/* Hero text */
+html.light .text-on-surface,
+html.light .text-on-surface-variant {
+  color: #3a3a42 !important;
+}
+
+html.light .label-sm {
+  color: inherit;
+}
+
+/* Buttons */
+html.light .bg-gradient-to-br {
+  color: white !important;
+}
+
+html.light .text-on-primary-fixed {
+  color: white !important;
+}
+
+/* App cards and glass panels */
+html.light .glass-panel,
+html.light .glass-card {
+  background: rgba(255, 255, 255, 0.7) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+html.light .glass-panel:hover,
+html.light .glass-card:hover {
+  background: rgba(255, 255, 255, 0.85) !important;
+  box-shadow: 0 0 20px rgba(77, 97, 255, 0.1), 0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+/* Feature cards and section backgrounds */
+html.light .bg-surface-container-lowest {
+  background-color: #f0f0f2 !important;
+}
+
+html.light .bg-surface-container {
+  background-color: #f5f5f7 !important;
+}
+
+html.light .bg-surface-container-high {
+  background-color: #e8e8ec !important;
+}
+
+html.light .bg-surface-container-highest {
+  background-color: #dddde2 !important;
+}
+
+/* Specific text overrides */
+html.light .text-white {
+  color: #1a1a1f !important;
+}
+
+html.light .text-slate-400 {
+  color: #666 !important;
+}
+
+html.light .text-slate-300 {
+  color: #555 !important;
+}
+
+html.light .text-slate-500 {
+  color: #777 !important;
+}
+
+/* Card text inside dark overlays should stay white */
+html.light .bg-gradient-to-t .text-on-surface-variant,
+html.light .bg-gradient-to-t h3,
+html.light .bg-gradient-to-t p,
+html.light .bg-gradient-to-t span {
+  color: white !important;
+}
+
+html.light .bg-\[\\#0e0e12\]\/60 h3,
+html.light .bg-\[\\#0e0e12\]\/60 p,
+html.light .bg-\[\\#0e0e12\]\/60 span {
+  color: white !important;
+}
+
+/* Form inputs */
+html.light input,
+html.light textarea {
+  background-color: #fff !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #1a1a1f !important;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #999 !important;
+}
+
+/* Footer */
 html.light footer {
-  background-color: var(--bg-surface-low) !important;
-  border-color: var(--border-glass) !important;
+  background-color: #f0f0f2 !important;
+  border-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Contact info links */
+html.light a.text-white {
+  color: #1a1a1f !important;
+}
+
+/* Borders */
+html.light .border-white\/5,
+html.light .border-white\/10 {
+  border-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Profile image */
+html.light .profile-glow {
+  box-shadow: 0 0 25px rgba(77, 97, 255, 0.15), 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Theme toggle in light mode */
+html.light .theme-toggle {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #1a1a1f;
+}
+
+/* Carousel arrows */
+html.light .carousel-arrow {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #1a1a1f;
+}
+
+/* Privacy page background override */
+html.light body {
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(77, 97, 255, 0.04) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(78, 98, 255, 0.04) 0px, transparent 50%) !important;
 }
 
 /* ---- Responsive Helpers ---- */
