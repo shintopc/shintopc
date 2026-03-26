@@ -4,22 +4,37 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // ---- Dark / Light Mode Setup ----
+  const themeToggle = document.getElementById('theme-toggle');
+  const html = document.documentElement;
+
+  // Always ensure dark mode is the default on page load
+  html.classList.remove('light');
+  html.classList.add('dark');
+
   // ---- tsParticles (Interactive Hero Background) ----
   const tsParticlesContainer = document.getElementById('tsparticles');
-  if (tsParticlesContainer && window.tsParticles) {
+  
+  const initParticles = () => {
+    if (!tsParticlesContainer || !window.tsParticles) return;
+    const isLight = html.classList.contains('light');
+    const particleColor = isLight ? "#4f46e5" : "#ffffff"; // Indigo in light mode, white in dark
+    const particleOpacity = isLight ? 0.5 : 0.3;
+    const linkOpacity = isLight ? 0.3 : 0.15;
+    
     tsParticles.load("tsparticles", {
       particles: {
         number: { value: 60, density: { enable: true, value_area: 800 } },
-        color: { value: "#ffffff" },
+        color: { value: particleColor },
         links: {
           enable: true,
           distance: 150,
-          color: "#ffffff",
-          opacity: 0.15,
+          color: particleColor,
+          opacity: linkOpacity,
           width: 1
         },
         shape: { type: "circle" },
-        opacity: { value: 0.3, random: true },
+        opacity: { value: particleOpacity, random: true },
         size: { value: 2, random: true },
         move: {
           enable: true,
@@ -39,21 +54,16 @@ document.addEventListener('DOMContentLoaded', () => {
           resize: true
         },
         modes: {
-          grab: { distance: 200, line_linked: { opacity: 0.4 } },
+          grab: { distance: 200, line_linked: { opacity: linkOpacity + 0.2 } },
           push: { particles_nb: 4 }
         }
       },
       retina_detect: true
     });
-  }
+  };
 
-  // ---- Dark / Light Mode Toggle ----
-  const themeToggle = document.getElementById('theme-toggle');
-  const html = document.documentElement;
-
-  // Always ensure dark mode is the default on page load
-  html.classList.remove('light');
-  html.classList.add('dark');
+  // Initialize on load
+  initParticles();
 
   if (themeToggle) {
     // Update icon based on current mode
@@ -70,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
       html.classList.toggle('dark');
       localStorage.setItem('shintopc-theme', html.classList.contains('light') ? 'light' : 'dark');
       updateIcon();
+      initParticles(); // Reload particles with new theme colors
     });
   }
 
