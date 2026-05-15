@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('shintopc-theme') || 'dark';
+            document.documentElement.classList.add(theme);
+        })();
+    </script>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <title>Privacy Policy - SportField Pro | ShintoPC Labs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="./tailwind-config.js"></script>
+    <link href="./styles.css" rel="stylesheet"/>
+</head>
+<body class="bg-background text-on-surface font-body p-6 md:p-20 selection:bg-emerald-500 selection:text-white">
+    <div class="max-w-4xl mx-auto glass-panel p-8 md:p-16 rounded-[2.5rem] border border-white/10 shadow-2xl relative overflow-hidden">
+        <a href="./sportfield-pro.html" class="inline-flex items-center gap-2 text-emerald-500 hover:text-emerald-400 font-bold uppercase tracking-widest text-xs mb-12 transition-colors">
+            <span class="material-symbols-outlined text-sm">arrow_back</span>
+            Back to App
+        </a>
+        
+        <h1 class="text-5xl md:text-6xl font-black font-headline tracking-tighter mb-4 text-glow">Privacy <span class="text-gradient from-emerald-400 to-amber-500">Policy</span></h1>
+        <p class="text-on-surface-variant font-medium uppercase tracking-widest text-xs mb-12">Effective Date: May 15, 2026</p>
+        
+        <div class="space-y-12 text-on-surface-variant leading-relaxed">
+            <section class="space-y-4">
+                <h2 class="text-2xl font-bold font-headline text-on-surface">1. Overview</h2>
+                <p>SportField Pro is committed to protecting the privacy of sports facilities and athletes. This policy explains how we handle your facility data, booking records, and user information.</p>
+            </section>
+
+            <section class="space-y-4">
+                <h2 class="text-2xl font-bold font-headline text-on-surface">2. Data Collection & Storage</h2>
+                <p>All sensitive operational data, including ground schedules, pricing, and member lists, are stored <strong>locally on your device</strong>. We do not transmit your business data to our servers unless you explicitly use a cloud-sync feature (if available).</p>
+            </section>
+
+            <section class="space-y-4">
+                <h2 class="text-2xl font-bold font-headline text-on-surface">3. Location Services</h2>
+                <p>SportField Pro may request access to your device's location to help athletes find nearby sports facilities. This data is processed locally and is not stored by ShintoPC Labs.</p>
+            </section>
+
+            <section class="space-y-4">
+                <h2 class="text-2xl font-bold font-headline text-on-surface">4. Permissions</h2>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li><strong>Calendar:</strong> To sync facility bookings with your device calendar.</li>
+                    <li><strong>Storage:</strong> To export booking reports and invoices as PDF files.</li>
+                    <li><strong>Camera:</strong> Optional, to upload facility photos or player profile pictures.</li>
+                </ul>
+            </section>
+
+            <section class="space-y-4">
+                <h2 class="text-2xl font-bold font-headline text-on-surface">5. Contact Us</h2>
+                <p>If you have questions about this Privacy Policy, please contact ShintoPC Labs via the official website support channels.</p>
+            </section>
+        </div>
+    </div>
+    
+    <footer class="mt-20 text-center">
+        <p class="text-xs text-on-surface-variant opacity-50 uppercase tracking-widest">&copy; 2026 ShintoPC Labs. All Rights Reserved.</p>
+    </footer>
+
+    <script src="./main.js"></script>
+</body>
+</html>
