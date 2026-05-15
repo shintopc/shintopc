@@ -522,21 +522,23 @@ html.light .glass-card:hover {
 }
 
 /* PROTECT DARK OVERLAYS: Ensure text stays white on dark backgrounds */
-html.light .bg-gradient-to-t *,
-html.light .bg-\[\\#0e0e12\]\/60 *,
-html.light .bg-emerald-900\/20 *,
-html.light .bg-surface-container-lowest * {
-  color: inherit;
-}
-
-/* Force white text in app cards */
 html.light .bg-gradient-to-t h3,
 html.light .bg-gradient-to-t p,
 html.light .bg-gradient-to-t span,
+html.light .bg-gradient-to-t div,
 html.light .bg-\[\\#0e0e12\]\/60 h3,
-html.light .bg-\[\\#0e0e12\]\/60 p {
+html.light .bg-\[\\#0e0e12\]\/60 p,
+html.light .bg-\[\\#0e0e12\]\/60 span,
+html.light [class*="bg-gradient-to-t"] *,
+html.light [class*="bg-[#0e0e12]"] * {
   color: #ffffff !important;
 }
+
+/* Specifically ensure descriptions inside cards are white */
+html.light .bg-gradient-to-t .text-on-surface-variant {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
 
 /* Background containers */
 html.light .bg-surface-container-lowest { background-color: #f3f4f6 !important; }
