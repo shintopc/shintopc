@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <title>Terms & Conditions - Kinetix Speedometer | ShintoPC Labs</title>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <script src="./tailwind-config.js"></script>
+    <link href="./styles.css" rel="stylesheet"/>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary">
+
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-[#0e0e12]/70 backdrop-blur-[20px] shadow-[0_20px_40px_rgba(0,0,0,0.4)] transition-all duration-300 border-b border-white/5" id="navbar">
+    <div class="flex justify-between items-center px-6 md:px-10 py-5 max-w-[1440px] mx-auto">
+        <a href="./index.html" class="flex items-center gap-3 text-2xl font-black font-headline tracking-tighter text-[#4D61FF] hover:text-primary transition-colors">
+            <img src="./assets/logo.png" alt="ShintoPC Labs Logo" class="h-8 w-auto" />
+            ShintoPC Labs
+        </a>
+    </div>
+</nav>
+
+<main class="relative pt-32 pb-24 px-6 md:px-10 max-w-[1000px] mx-auto min-h-screen">
+    <section class="mb-20 space-y-6 fade-in">
+        <a href="./kinetix-speedometer.html" class="label-sm uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary mb-6 flex items-center gap-2 font-semibold w-fit transition-colors">
+            <span class="material-symbols-outlined text-sm">arrow_back</span>
+            Back to App
+        </a>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5">
+            <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-primary">Agreement</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-black font-headline tracking-tighter text-on-surface leading-[0.9] text-glow">
+            TERMS OF <br/> <span class="text-gradient">SERVICE</span>
+        </h1>
+    </section>
+
+    <div class="space-y-16 text-on-surface-variant leading-relaxed">
+        <section class="space-y-4">
+            <h2 class="text-2xl font-bold font-headline text-on-surface">1. Acceptance of Terms</h2>
+            <p>By downloading or using <strong>Kinetix Speedometer</strong>, you agree to these terms. If you do not agree, you must stop using the application immediately.</p>
+        </section>
+
+        <section class="space-y-4">
+            <h2 class="text-2xl font-bold font-headline text-on-surface">2. Safety and Liability</h2>
+            <p><strong>IMPORTANT:</strong> Do not interact with the application while driving. Use the HUD mode only when the device is securely mounted. Kinetix Speedometer is a supplementary tool and should not replace your vehicle's factory-installed speedometer.</p>
+            <p>ShintoPC Labs is not liable for any accidents, traffic violations, or hardware damage resulting from the use of this application.</p>
+        </section>
+
+        <section class="space-y-4">
+            <h2 class="text-2xl font-bold font-headline text-on-surface">3. GPS Accuracy</h2>
+            <p>GPS data accuracy depends on satellite visibility and device hardware. We do not guarantee 100% precision in speed or distance calculations.</p>
+        </section>
+
+        <section class="space-y-4">
+            <h2 class="text-2xl font-bold font-headline text-on-surface">4. Intellectual Property</h2>
+            <p>All logos, designs, and algorithms within Kinetix Speedometer are the exclusive property of ShintoPC Labs.</p>
+        </section>
+    </div>
+</main>
+
+<footer class="bg-surface-container-lowest border-t border-white/5 py-12 px-6 md:px-10">
+    <div class="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="flex items-center gap-3 text-xl font-black font-headline tracking-tighter text-white">
+            <img src="./assets/logo.png" alt="ShintoPC Labs Logo" class="h-6 w-auto" />
+            ShintoPC Labs
+        </div>
+    </div>
+</footer>
+
+<script src="./main.js"></script>
+</body>
+</html>

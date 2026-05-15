@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <title>Terms & Conditions - CaterPro Calc | ShintoPC Labs</title>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <script src="./tailwind-config.js"></script>
+    <link href="./styles.css" rel="stylesheet"/>
+    <style>
+        .verdant-luxe {
+            --primary: #10B981;
+            --on-primary: #ffffff;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-emerald-500 selection:text-white verdant-luxe">
+
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-[#0e0e12]/70 backdrop-blur-[20px] shadow-[0_20px_40px_rgba(0,0,0,0.4)] transition-all duration-300 border-b border-white/5" id="navbar">
+    <div class="flex justify-between items-center px-6 md:px-10 py-5 max-w-[1440px] mx-auto">
+        <a href="./index.html" class="flex items-center gap-3 text-2xl font-black font-headline tracking-tighter text-emerald-500 hover:text-emerald-400 transition-colors">
+            <img src="./assets/logo.png" alt="ShintoPC Labs Logo" class="h-8 w-auto" />
+            ShintoPC Labs
+        </a>
+    </div>
+</nav>
+
+<main class="relative pt-32 pb-24 px-6 md:px-10 max-w-[1000px] mx-auto min-h-screen">
+    <section class="mb-20 space-y-6 fade-in">
+        <a href="./caterpro-calc.html" class="label-sm uppercase tracking-[0.2em] text-on-surface-variant hover:text-emerald-500 mb-6 flex items-center gap-2 font-semibold w-fit transition-colors">
+            <span class="material-symbols-outlined text-sm">arrow_back</span>
+            Back to App
+        </a>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/5">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-emerald-500">Agreement</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-black font-headline tracking-tighter text-on-surface leading-[0.9] text-glow">
+            TERMS OF <br/> <span class="text-gradient from-emerald-400 to-amber-500">SERVICE</span>
+        </h1>
+    </section>
+
+    <div class="space-y-16 text-on-surface-variant leading-relaxed">
+        <section class="space-y-4">
+            <h2 class="text-2xl font-bold font-headline text-on-surface">1. Business Use</h2>
+            <p><strong>CaterPro Calc</strong> is intended for professional catering and event management. By using the app, you represent that you have the authority to manage the business data entered.</p>
+        </section>
+
+        <section class="space-y-4">
+            <h2 class="text-2xl font-bold font-headline text-on-surface">2. Calculation Responsibility</h2>
+            <p>While the app provides automated ingredient calculations, users are responsible for verifying final quantities before making bulk purchases. ShintoPC Labs is not responsible for any financial loss due to calculation errors or ingredient shortages/surpluses.</p>
+        </section>
+
+        <section class="space-y-4">
+            <h2 class="text-2xl font-bold font-headline text-on-surface">3. PDF Exports and Branding</h2>
+            <p>Users are responsible for the content, logos, and company details injected into PDF exports. Ensure you have the legal right to use any logos or trade names provided to the application.</p>
+        </section>
+
+        <section class="space-y-4">
+            <h2 class="text-2xl font-bold font-headline text-on-surface">4. Subscription and Access</h2>
+            <p>If applicable, subscription terms are managed through the Google Play Store. Uninstalling the app does not automatically cancel active subscriptions.</p>
+        </section>
+    </div>
+</main>
+
+<footer class="bg-surface-container-lowest border-t border-white/5 py-12 px-6 md:px-10">
+    <div class="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="flex items-center gap-3 text-xl font-black font-headline tracking-tighter text-white">
+            <img src="./assets/logo.png" alt="ShintoPC Labs Logo" class="h-6 w-auto" />
+            ShintoPC Labs
+        </div>
+    </div>
+</footer>
+
+<script src="./main.js"></script>
+</body>
+</html>
