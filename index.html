@@ -1,289 +1,395 @@
 <!DOCTYPE html>
 <html class="dark scroll-smooth" lang="en">
+
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <link rel="icon" type="image/x-icon" href="./favicon.ico" />
     <title>ShintoPC Labs | Crafting the Future of Mobile</title>
-    <meta name="description" content="ShintoPC Labs is an elite development studio building high-performance mobile experiences like Kinetix Speedometer and UPI Voice Alert." />
-    
+    <meta name="description"
+        content="ShintoPC Labs is an elite development studio building high-performance mobile experiences like Kinetix Speedometer and UPI Voice Alert." />
+
     <!-- Dependencies -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;800;900&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;800;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
     <!-- tsParticles -->
     <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.0.6/tsparticles.slim.bundle.min.js"></script>
-    
+
     <!-- Tailwind Config -->
     <script src="./tailwind-config.js"></script>
-    
+
     <!-- Shared Styles -->
-    <link href="./styles.css" rel="stylesheet"/>
+    <link href="./styles.css" rel="stylesheet" />
 </head>
+
 <body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary">
 
-<!-- Top Navigation -->
-<nav class="fixed top-0 w-full z-50 bg-[#0e0e12]/70 backdrop-blur-[20px] shadow-[0_20px_40px_rgba(0,0,0,0.4)] transition-all duration-300 border-b border-white/5" id="navbar">
-    <div class="flex justify-between items-center px-6 md:px-10 py-5 max-w-[1440px] mx-auto">
-        <a href="#" class="flex items-center gap-3 text-2xl font-black font-headline tracking-tighter text-[#4D61FF] hover:text-primary transition-colors">
-            <img src="./assets/logo.png" alt="ShintoPC Labs Logo" class="h-8 w-auto" />
-            ShintoPC Labs
-        </a>
-        
-        <!-- Desktop Nav -->
-        <div class="hidden md:flex gap-8 font-inter tracking-tight text-sm font-medium uppercase items-center">
-            <a class="text-slate-400 hover:text-white transition-colors duration-300" href="#apps">Apps</a>
-            <a class="text-slate-400 hover:text-white transition-colors duration-300" href="#features">Features</a>
-            <a class="text-slate-400 hover:text-white transition-colors duration-300" href="./privacy.html">Privacy</a>
-            <a class="text-slate-400 hover:text-white transition-colors duration-300" href="#contact">Contact</a>
-            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
-                <span class="material-symbols-outlined text-lg">light_mode</span>
-            </button>
-            <a href="#apps" class="bg-gradient-to-r from-indigo-500 via-violet-500 to-pink-500 px-6 py-2 rounded-lg text-white font-bold text-sm uppercase tracking-wider transition-all active:scale-95 btn-ripple btn-glow">
-                View Portfolio
+    <!-- Top Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-[#0e0e12]/70 backdrop-blur-[20px] shadow-[0_20px_40px_rgba(0,0,0,0.4)] transition-all duration-300 border-b border-white/5"
+        id="navbar">
+        <div class="flex justify-between items-center px-6 md:px-10 py-5 max-w-[1440px] mx-auto">
+            <a href="#"
+                class="flex items-center gap-3 text-2xl font-black font-headline tracking-tighter text-[#4D61FF] hover:text-primary transition-colors">
+                <img src="./assets/logo.png" alt="ShintoPC Labs Logo" class="h-8 w-auto" />
+                ShintoPC Labs
             </a>
-        </div>
-        
-        <!-- Mobile Controls -->
-        <div class="flex md:hidden items-center gap-3">
-            <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Toggle Theme" onclick="document.getElementById('theme-toggle').click()">
-                <span class="material-symbols-outlined text-lg">light_mode</span>
-            </button>
-            <button id="hamburger-btn" aria-label="Toggle Menu" class="text-white p-2">
-                <span class="material-symbols-outlined text-3xl">menu</span>
-            </button>
-        </div>
-    </div>
-    
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full bg-[#0e0e12]/95 backdrop-blur-[20px] border-b border-white/10 shadow-xl flex flex-col items-center py-6 gap-6">
-        <a class="text-slate-300 hover:text-white font-bold uppercase tracking-widest text-sm" href="#apps">Apps</a>
-        <a class="text-slate-300 hover:text-white font-bold uppercase tracking-widest text-sm" href="#features">Features</a>
-        <a class="text-slate-300 hover:text-white font-bold uppercase tracking-widest text-sm" href="./privacy.html">Privacy Policy</a>
-        <a class="text-slate-300 hover:text-white font-bold uppercase tracking-widest text-sm" href="#contact">Contact</a>
-    </div>
-</nav>
 
-<main>
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center pt-24 pb-20 overflow-hidden hero-gradient">
-        <!-- Interactive Particles -->
-        <div id="tsparticles" class="absolute inset-0 z-0 pointer-events-none"></div>
-        
-        <!-- Animated Background -->
-        <div class="hero-bg-animated"></div>
-        <!-- Extra floating glow orbs for depth -->
-        <div class="absolute top-[10%] left-[5%] w-[500px] h-[500px] bg-indigo-500/[0.12] rounded-full blur-[150px] pointer-events-none animate-pulse" style="animation-duration:7s"></div>
-        <div class="absolute bottom-[15%] right-[8%] w-[400px] h-[400px] bg-violet-500/[0.09] rounded-full blur-[130px] pointer-events-none animate-pulse" style="animation-duration:9s"></div>
-        <div class="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-400/[0.04] rounded-full blur-[180px] pointer-events-none"></div>
-        
-        <div class="max-w-[1440px] mx-auto px-6 md:px-10 grid lg:grid-cols-2 gap-16 items-center relative z-10">
-            <div class="z-10 fade-in">
-                <span class="label-sm bg-secondary-container text-on-secondary-container px-4 py-1.5 rounded-full uppercase tracking-widest font-bold mb-6 inline-block shadow-lg text-[10px] neon-glow-secondary">Engineering Excellence</span>
-                <h1 class="text-6xl md:text-7xl lg:text-8xl font-black font-headline tracking-tighter leading-none mb-6 text-glow">
-                    Crafting the <br/><span class="text-gradient">Future</span> of Mobile
-                </h1>
-                <p class="text-on-surface-variant text-lg md:text-xl max-w-lg mb-10 leading-relaxed font-light">
-                    ShintoPC Labs builds high-performance mobile experiences with precision. Creators of Kinetix Speedometer and UPI Voice Alert.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#apps" class="bg-gradient-to-r from-indigo-500 via-violet-500 to-pink-500 px-8 py-4 rounded-xl text-white font-bold flex items-center gap-3 transition-all btn-ripple btn-glow">
-                        <span class="material-symbols-outlined text-xl">explore</span>
-                        Explore Apps
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex gap-8 font-inter tracking-tight text-sm font-medium uppercase items-center">
+                <a class="text-slate-400 hover:text-white transition-colors duration-300" href="#apps">Apps</a>
+                <a class="text-slate-400 hover:text-white transition-colors duration-300" href="#features">Features</a>
+                <a class="text-slate-400 hover:text-white transition-colors duration-300"
+                    href="./privacy.html">Privacy</a>
+                <a class="text-slate-400 hover:text-white transition-colors duration-300" href="#contact">Contact</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <span class="material-symbols-outlined text-lg">light_mode</span>
+                </button>
+                <a href="#apps"
+                    class="bg-gradient-to-r from-indigo-500 via-violet-500 to-pink-500 px-6 py-2 rounded-lg text-white font-bold text-sm uppercase tracking-wider transition-all active:scale-95 btn-ripple btn-glow">
+                    View Portfolio
+                </a>
+            </div>
+
+            <!-- Mobile Controls -->
+            <div class="flex md:hidden items-center gap-3">
+                <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Toggle Theme"
+                    onclick="document.getElementById('theme-toggle').click()">
+                    <span class="material-symbols-outlined text-lg">light_mode</span>
+                </button>
+                <button id="hamburger-btn" aria-label="Toggle Menu" class="text-white p-2">
+                    <span class="material-symbols-outlined text-3xl">menu</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="md:hidden absolute top-full left-0 w-full bg-[#0e0e12]/95 backdrop-blur-[20px] border-b border-white/10 shadow-xl flex flex-col items-center py-6 gap-6">
+            <a class="text-slate-300 hover:text-white font-bold uppercase tracking-widest text-sm" href="#apps">Apps</a>
+            <a class="text-slate-300 hover:text-white font-bold uppercase tracking-widest text-sm"
+                href="#features">Features</a>
+            <a class="text-slate-300 hover:text-white font-bold uppercase tracking-widest text-sm"
+                href="./privacy.html">Privacy Policy</a>
+            <a class="text-slate-300 hover:text-white font-bold uppercase tracking-widest text-sm"
+                href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex items-center pt-24 pb-20 overflow-hidden hero-gradient">
+            <!-- Interactive Particles -->
+            <div id="tsparticles" class="absolute inset-0 z-0 pointer-events-none"></div>
+
+            <!-- Animated Background -->
+            <div class="hero-bg-animated"></div>
+            <!-- Extra floating glow orbs for depth -->
+            <div class="absolute top-[10%] left-[5%] w-[500px] h-[500px] bg-indigo-500/[0.12] rounded-full blur-[150px] pointer-events-none animate-pulse"
+                style="animation-duration:7s"></div>
+            <div class="absolute bottom-[15%] right-[8%] w-[400px] h-[400px] bg-violet-500/[0.09] rounded-full blur-[130px] pointer-events-none animate-pulse"
+                style="animation-duration:9s"></div>
+            <div
+                class="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-400/[0.04] rounded-full blur-[180px] pointer-events-none">
+            </div>
+
+            <div class="max-w-[1440px] mx-auto px-6 md:px-10 grid lg:grid-cols-2 gap-16 items-center relative z-10">
+                <div class="z-10 fade-in">
+                    <span
+                        class="label-sm bg-secondary-container text-on-secondary-container px-4 py-1.5 rounded-full uppercase tracking-widest font-bold mb-6 inline-block shadow-lg text-[10px] neon-glow-secondary">Engineering
+                        Excellence</span>
+                    <h1
+                        class="text-6xl md:text-7xl lg:text-8xl font-black font-headline tracking-tighter leading-none mb-6 text-glow">
+                        Crafting the <br /><span class="text-gradient">Future</span> of Mobile
+                    </h1>
+                    <p class="text-on-surface-variant text-lg md:text-xl max-w-lg mb-10 leading-relaxed font-light">
+                        ShintoPC Labs builds high-performance mobile experiences with precision. Creators of Kinetix
+                        Speedometer and UPI Voice Alert.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#apps"
+                            class="bg-gradient-to-r from-indigo-500 via-violet-500 to-pink-500 px-8 py-4 rounded-xl text-white font-bold flex items-center gap-3 transition-all btn-ripple btn-glow">
+                            <span class="material-symbols-outlined text-xl">explore</span>
+                            Explore Apps
+                        </a>
+                    </div>
+                </div>
+                <div class="relative fade-in mt-12 lg:mt-0 px-2 lg:px-0">
+                    <div
+                        class="absolute -top-20 -right-20 w-96 h-96 bg-secondary/20 blur-[120px] rounded-full pointer-events-none hidden md:block">
+                    </div>
+                    <div class="glass-panel p-4 rounded-[2.5rem] hover:rotate-0 transition-all duration-700 shadow-2xl relative z-10 border border-white/10 group cursor-pointer float-anim neon-glow-primary"
+                        onclick="window.location.href='./kinetix-speedometer.html'">
+                        <!-- Kinetix Speedometer Hero Mockup -->
+                        <img alt="Kinetix Speedometer Interface"
+                            class="rounded-[2rem] w-full shadow-inner opacity-80 group-hover:opacity-100 transition-opacity"
+                            src="./assets/hero.png" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Apps Showcase: Bento Grid -->
+        <section class="py-24 px-6 md:px-10" id="apps">
+            <div class="max-w-[1440px] mx-auto">
+                <div class="mb-16 fade-in flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+                    <div>
+                        <span
+                            class="label-sm text-primary uppercase tracking-[0.2em] font-bold text-xs">Portfolio</span>
+                        <h2 class="text-4xl md:text-5xl font-black font-headline tracking-tighter mt-2 text-glow">
+                            Production Apps</h2>
+                    </div>
+                    <a href="https://play.google.com/store/apps/dev?id=7241412755504887178" target="_blank"
+                        rel="noopener noreferrer"
+                        class="flex items-center gap-3 glass-panel px-5 py-3 rounded-xl hover:border-primary/50 transition-all active:scale-95 group w-fit btn-ripple">
+                        <span
+                            class="material-symbols-outlined text-3xl text-white group-hover:text-primary transition-colors"
+                            style="font-variation-settings: 'FILL' 1;">play_apps</span>
+                        <div class="text-left">
+                            <p class="text-[0.6rem] uppercase tracking-widest text-on-surface-variant font-bold mb-0.5">
+                                Get on</p>
+                            <p class="text-lg font-bold font-headline leading-none text-white">Play Store</p>
+                        </div>
                     </a>
                 </div>
-            </div>
-            <div class="relative fade-in mt-12 lg:mt-0 px-2 lg:px-0">
-                <div class="absolute -top-20 -right-20 w-96 h-96 bg-secondary/20 blur-[120px] rounded-full pointer-events-none hidden md:block"></div>
-                <div class="glass-panel p-4 rounded-[2.5rem] hover:rotate-0 transition-all duration-700 shadow-2xl relative z-10 border border-white/10 group cursor-pointer float-anim neon-glow-primary" onclick="window.location.href='./kinetix-speedometer.html'">
-                    <!-- Kinetix Speedometer Hero Mockup -->
-                    <img alt="Kinetix Speedometer Interface" class="rounded-[2rem] w-full shadow-inner opacity-80 group-hover:opacity-100 transition-opacity" src="./assets/hero.png" />
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Apps Showcase: Bento Grid -->
-    <section class="py-24 px-6 md:px-10" id="apps">
-        <div class="max-w-[1440px] mx-auto">
-            <div class="mb-16 fade-in flex flex-col sm:flex-row sm:items-end justify-between gap-6">
-                <div>
-                    <span class="label-sm text-primary uppercase tracking-[0.2em] font-bold text-xs">Portfolio</span>
-                    <h2 class="text-4xl md:text-5xl font-black font-headline tracking-tighter mt-2 text-glow">Production Apps</h2>
-                </div>
-                <a href="https://play.google.com/store/apps/developer?id=Shinto+PC" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 glass-panel px-5 py-3 rounded-xl hover:border-primary/50 transition-all active:scale-95 group w-fit btn-ripple">
-                    <span class="material-symbols-outlined text-3xl text-white group-hover:text-primary transition-colors" style="font-variation-settings: 'FILL' 1;">play_apps</span>
-                    <div class="text-left">
-                        <p class="text-[0.6rem] uppercase tracking-widest text-on-surface-variant font-bold mb-0.5">Get on</p>
-                        <p class="text-lg font-bold font-headline leading-none text-white">Play Store</p>
-                    </div>
-                </a>
-            </div>
-            
-            <div class="grid md:grid-cols-12 gap-8">
-                <!-- Kinetix Speedometer Card -->
-                <a href="./kinetix-speedometer.html" class="md:col-span-8 glass-panel p-2 rounded-[2.5rem] overflow-hidden group scale-in block hover:-translate-y-2 transition-all duration-500">
-                    <div class="relative h-[480px]">
-                        <img alt="Kinetix Speedometer" class="w-full h-full object-cover rounded-[2rem] opacity-60 group-hover:scale-105 group-hover:opacity-80 transition-all duration-700" src="./assets/kinetix-bg.png" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#0e0e12] via-[#0e0e12]/80 to-transparent rounded-[2rem] flex flex-col justify-end p-8 md:p-12">
-                            <div class="flex items-center gap-5 mb-6">
-                                <div class="w-16 h-16 glass-panel border border-tertiary/20 rounded-2xl flex items-center justify-center text-tertiary neon-glow-tertiary">
-                                    <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">speed</span>
+                <div class="grid md:grid-cols-12 gap-8">
+                    <!-- Kinetix Speedometer Card -->
+                    <a href="./kinetix-speedometer.html"
+                        class="md:col-span-8 glass-panel p-2 rounded-[2.5rem] overflow-hidden group scale-in block hover:-translate-y-2 transition-all duration-500">
+                        <div class="relative h-[480px]">
+                            <img alt="Kinetix Speedometer"
+                                class="w-full h-full object-cover rounded-[2rem] opacity-60 group-hover:scale-105 group-hover:opacity-80 transition-all duration-700"
+                                src="./assets/kinetix-bg.png" />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-[#0e0e12] via-[#0e0e12]/80 to-transparent rounded-[2rem] flex flex-col justify-end p-8 md:p-12">
+                                <div class="flex items-center gap-5 mb-6">
+                                    <div
+                                        class="w-16 h-16 glass-panel border border-tertiary/20 rounded-2xl flex items-center justify-center text-tertiary neon-glow-tertiary">
+                                        <span class="material-symbols-outlined text-3xl"
+                                            style="font-variation-settings: 'FILL' 1;">speed</span>
+                                    </div>
+                                    <h3 class="text-3xl md:text-4xl font-bold font-headline">Kinetix Speedometer</h3>
                                 </div>
-                                <h3 class="text-3xl md:text-4xl font-bold font-headline">Kinetix Speedometer</h3>
+                                <p class="text-on-surface-variant max-w-lg mb-8 leading-relaxed text-lg">Advanced GPS
+                                    tracking, real-time analytics, and sleek HUD interfaces. Precision tracking
+                                    engineered for performance enthusiasts.</p>
+                                <span
+                                    class="w-fit px-8 py-3 bg-white text-black rounded-xl font-bold text-sm uppercase tracking-wider hover:bg-slate-200 transition-colors inline-block btn-ripple">View
+                                    Project Details</span>
                             </div>
-                            <p class="text-on-surface-variant max-w-lg mb-8 leading-relaxed text-lg">Advanced GPS tracking, real-time analytics, and sleek HUD interfaces. Precision tracking engineered for performance enthusiasts.</p>
-                            <span class="w-fit px-8 py-3 bg-white text-black rounded-xl font-bold text-sm uppercase tracking-wider hover:bg-slate-200 transition-colors inline-block btn-ripple">View Project Details</span>
                         </div>
-                    </div>
-                </a>
+                    </a>
 
-                <!-- UPI Voice Alert Card -->
-                <div class="md:col-span-4 glass-panel p-10 rounded-[2.5rem] flex flex-col justify-between border-t border-t-secondary/30 relative overflow-hidden group hover:bg-surface-container/50 hover:-translate-y-2 transition-all duration-500 scale-in">
-                    <div class="absolute inset-0 bg-gradient-to-b from-secondary/5 to-transparent pointer-events-none"></div>
-                    <div class="relative z-10">
-                        <div class="w-16 h-16 bg-gradient-to-br from-secondary/20 to-secondary/5 rounded-2xl flex items-center justify-center text-secondary mb-8 border border-secondary/20 neon-glow-secondary">
-                            <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">record_voice_over</span>
+                    <!-- UPI Voice Alert Card -->
+                    <div
+                        class="md:col-span-4 glass-panel p-10 rounded-[2.5rem] flex flex-col justify-between border-t border-t-secondary/30 relative overflow-hidden group hover:bg-surface-container/50 hover:-translate-y-2 transition-all duration-500 scale-in">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-b from-secondary/5 to-transparent pointer-events-none">
                         </div>
-                        <h3 class="text-3xl font-bold font-headline mb-4">UPI Voice Alert</h3>
-                        <p class="text-on-surface-variant leading-relaxed mb-8">Instant multi-lingual audio notifications for merchant UPI payments. Unbreakable reliability handling thousands of daily transactions.</p>
+                        <div class="relative z-10">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-secondary/20 to-secondary/5 rounded-2xl flex items-center justify-center text-secondary mb-8 border border-secondary/20 neon-glow-secondary">
+                                <span class="material-symbols-outlined text-3xl"
+                                    style="font-variation-settings: 'FILL' 1;">record_voice_over</span>
+                            </div>
+                            <h3 class="text-3xl font-bold font-headline mb-4">UPI Voice Alert</h3>
+                            <p class="text-on-surface-variant leading-relaxed mb-8">Instant multi-lingual audio
+                                notifications for merchant UPI payments. Unbreakable reliability handling thousands of
+                                daily transactions.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Features Section -->
-    <section class="py-24 px-6 md:px-10 bg-surface-container-lowest relative overflow-hidden" id="features">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 blur-[200px] rounded-full pointer-events-none"></div>
-        <div class="max-w-[1440px] mx-auto relative z-10">
-            <div class="text-center mb-20 fade-in">
-                <h2 class="text-4xl md:text-5xl font-black font-headline tracking-tighter mb-4 text-glow">Core Philosophy</h2>
-                <p class="text-on-surface-variant uppercase tracking-widest text-xs font-bold text-primary">Standard in every app</p>
+        <!-- Features Section -->
+        <section class="py-24 px-6 md:px-10 bg-surface-container-lowest relative overflow-hidden" id="features">
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 blur-[200px] rounded-full pointer-events-none">
             </div>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="p-10 rounded-3xl glass-panel hover:-translate-y-3 transition-all duration-500 fade-in group">
-                    <span class="material-symbols-outlined text-5xl text-primary mb-6 group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">bolt</span>
-                    <h3 class="text-xl font-bold mb-3 font-headline">Ultra Fast</h3>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Sub-second loads, minimized binary sizes, and optimized rendering engines.</p>
+            <div class="max-w-[1440px] mx-auto relative z-10">
+                <div class="text-center mb-20 fade-in">
+                    <h2 class="text-4xl md:text-5xl font-black font-headline tracking-tighter mb-4 text-glow">Core
+                        Philosophy</h2>
+                    <p class="text-on-surface-variant uppercase tracking-widest text-xs font-bold text-primary">Standard
+                        in every app</p>
                 </div>
-                <div class="p-10 rounded-3xl glass-panel hover:-translate-y-3 transition-all duration-500 fade-in delay-100 group">
-                    <span class="material-symbols-outlined text-5xl text-secondary mb-6 group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">verified_user</span>
-                    <h3 class="text-xl font-bold mb-3 font-headline">Rock Solid</h3>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Built on robust architectural principles targeting 99.9% crash-free sessions.</p>
-                </div>
-                <div class="p-10 rounded-3xl glass-panel hover:-translate-y-3 transition-all duration-500 fade-in delay-200 group">
-                    <span class="material-symbols-outlined text-5xl text-tertiary mb-6 group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">design_services</span>
-                    <h3 class="text-xl font-bold mb-3 font-headline">Premium UX</h3>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Design patterns prioritizing cognitive ease, fluid motion, and dark mode excellence.</p>
-                </div>
-                <div class="p-10 rounded-3xl glass-panel hover:-translate-y-3 transition-all duration-500 fade-in delay-300 group">
-                    <span class="material-symbols-outlined text-5xl text-error mb-6 group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">update</span>
-                    <h3 class="text-xl font-bold mb-3 font-headline">Eternally Evolving</h3>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Constant iteration driven by active telemetry and real user feedback loops.</p>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div
+                        class="p-10 rounded-3xl glass-panel hover:-translate-y-3 transition-all duration-500 fade-in group">
+                        <span
+                            class="material-symbols-outlined text-5xl text-primary mb-6 group-hover:scale-110 transition-transform"
+                            style="font-variation-settings: 'FILL' 1;">bolt</span>
+                        <h3 class="text-xl font-bold mb-3 font-headline">Ultra Fast</h3>
+                        <p class="text-sm text-on-surface-variant leading-relaxed">Sub-second loads, minimized binary
+                            sizes, and optimized rendering engines.</p>
+                    </div>
+                    <div
+                        class="p-10 rounded-3xl glass-panel hover:-translate-y-3 transition-all duration-500 fade-in delay-100 group">
+                        <span
+                            class="material-symbols-outlined text-5xl text-secondary mb-6 group-hover:scale-110 transition-transform"
+                            style="font-variation-settings: 'FILL' 1;">verified_user</span>
+                        <h3 class="text-xl font-bold mb-3 font-headline">Rock Solid</h3>
+                        <p class="text-sm text-on-surface-variant leading-relaxed">Built on robust architectural
+                            principles targeting 99.9% crash-free sessions.</p>
+                    </div>
+                    <div
+                        class="p-10 rounded-3xl glass-panel hover:-translate-y-3 transition-all duration-500 fade-in delay-200 group">
+                        <span
+                            class="material-symbols-outlined text-5xl text-tertiary mb-6 group-hover:scale-110 transition-transform"
+                            style="font-variation-settings: 'FILL' 1;">design_services</span>
+                        <h3 class="text-xl font-bold mb-3 font-headline">Premium UX</h3>
+                        <p class="text-sm text-on-surface-variant leading-relaxed">Design patterns prioritizing
+                            cognitive ease, fluid motion, and dark mode excellence.</p>
+                    </div>
+                    <div
+                        class="p-10 rounded-3xl glass-panel hover:-translate-y-3 transition-all duration-500 fade-in delay-300 group">
+                        <span
+                            class="material-symbols-outlined text-5xl text-error mb-6 group-hover:scale-110 transition-transform"
+                            style="font-variation-settings: 'FILL' 1;">update</span>
+                        <h3 class="text-xl font-bold mb-3 font-headline">Eternally Evolving</h3>
+                        <p class="text-sm text-on-surface-variant leading-relaxed">Constant iteration driven by active
+                            telemetry and real user feedback loops.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section class="py-24 px-6 md:px-10 relative overflow-hidden" id="contact">
-        <div class="absolute -top-40 -left-40 w-96 h-96 bg-primary/10 blur-[150px] pointer-events-none rounded-full"></div>
-        <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-secondary/10 blur-[150px] pointer-events-none rounded-full"></div>
-        
-        <div class="max-w-[1440px] mx-auto grid lg:grid-cols-2 gap-20 items-center relative z-10">
-            <div class="slide-left">
-                <span class="label-sm text-secondary uppercase tracking-[0.2em] font-bold text-xs mb-4 block">Inquiries</span>
-                <h2 class="text-5xl md:text-7xl font-black font-headline tracking-tighter mb-8 leading-tight text-glow">Connect with <br/><span class="text-secondary">ShintoPC Labs</span></h2>
-                <p class="text-on-surface-variant text-lg mb-12 max-w-md leading-relaxed font-light">Whether you need dedicated technical support for our apps or have potential business inquiries, we're ready to communicate.</p>
-                
-                <div class="space-y-8">
-                    <img src="./assets/profile.jpg" alt="ShintoPC Profile" class="w-36 h-36 rounded-full border-4 border-primary/20 shadow-2xl object-cover object-top profile-glow" />
-                    <div class="flex items-center gap-6">
-                        <div class="w-16 h-16 glass-panel rounded-2xl flex items-center justify-center text-primary border border-primary/20 neon-glow-primary">
-                            <span class="material-symbols-outlined text-2xl">mail</span>
+        <!-- Contact Section -->
+        <section class="py-24 px-6 md:px-10 relative overflow-hidden" id="contact">
+            <div
+                class="absolute -top-40 -left-40 w-96 h-96 bg-primary/10 blur-[150px] pointer-events-none rounded-full">
+            </div>
+            <div
+                class="absolute -bottom-40 -right-40 w-96 h-96 bg-secondary/10 blur-[150px] pointer-events-none rounded-full">
+            </div>
+
+            <div class="max-w-[1440px] mx-auto grid lg:grid-cols-2 gap-20 items-center relative z-10">
+                <div class="slide-left">
+                    <span
+                        class="label-sm text-secondary uppercase tracking-[0.2em] font-bold text-xs mb-4 block">Inquiries</span>
+                    <h2
+                        class="text-5xl md:text-7xl font-black font-headline tracking-tighter mb-8 leading-tight text-glow">
+                        Connect with <br /><span class="text-secondary">ShintoPC Labs</span></h2>
+                    <p class="text-on-surface-variant text-lg mb-12 max-w-md leading-relaxed font-light">Whether you
+                        need dedicated technical support for our apps or have potential business inquiries, we're ready
+                        to communicate.</p>
+
+                    <div class="space-y-8">
+                        <img src="./assets/profile.jpg" alt="ShintoPC Profile"
+                            class="w-36 h-36 rounded-full border-4 border-primary/20 shadow-2xl object-cover object-top profile-glow" />
+                        <div class="flex items-center gap-6">
+                            <div
+                                class="w-16 h-16 glass-panel rounded-2xl flex items-center justify-center text-primary border border-primary/20 neon-glow-primary">
+                                <span class="material-symbols-outlined text-2xl">mail</span>
+                            </div>
+                            <div>
+                                <p class="text-xs uppercase tracking-[0.2em] font-bold text-on-surface-variant mb-1">
+                                    Direct Relay</p>
+                                <a class="text-xl font-bold hover:text-primary transition-colors text-white"
+                                    href="mailto:shintopc.dev@gmail.com">shintopc.dev@gmail.com</a>
+                            </div>
                         </div>
-                        <div>
-                            <p class="text-xs uppercase tracking-[0.2em] font-bold text-on-surface-variant mb-1">Direct Relay</p>
-                            <a class="text-xl font-bold hover:text-primary transition-colors text-white" href="mailto:shintopc.dev@gmail.com">shintopc.dev@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-6">
-                        <div class="w-16 h-16 glass-panel rounded-2xl flex items-center justify-center text-[#25D366] border border-[#25D366]/20 shadow-[0_0_20px_rgba(37,211,102,0.15)]">
-                            <span class="material-symbols-outlined text-2xl">call</span>
-                        </div>
-                        <div>
-                            <p class="text-xs uppercase tracking-[0.2em] font-bold text-on-surface-variant mb-1">WhatsApp & Phone</p>
-                            <a class="text-xl font-bold hover:text-[#25D366] transition-colors text-white" href="tel:+919419927293">+91 9419927293</a>
+                        <div class="flex items-center gap-6">
+                            <div
+                                class="w-16 h-16 glass-panel rounded-2xl flex items-center justify-center text-[#25D366] border border-[#25D366]/20 shadow-[0_0_20px_rgba(37,211,102,0.15)]">
+                                <span class="material-symbols-outlined text-2xl">call</span>
+                            </div>
+                            <div>
+                                <p class="text-xs uppercase tracking-[0.2em] font-bold text-on-surface-variant mb-1">
+                                    WhatsApp & Phone</p>
+                                <a class="text-xl font-bold hover:text-[#25D366] transition-colors text-white"
+                                    href="tel:+919419927293">+91 9419927293</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="glass-panel p-8 md:p-12 rounded-[2.5rem] border border-white/10 slide-right shadow-2xl relative">
-                <div class="absolute top-0 right-10 w-24 h-1 bg-gradient-to-r from-primary to-transparent"></div>
-                
-                <h3 class="text-2xl font-bold mb-8 font-headline">Send a Transmission</h3>
-                <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
-                    <input type="hidden" name="access_key" value="d0182054-0355-4dcb-b8d7-21df9f432e8a">
-                    <input type="hidden" name="subject" value="New Transmission via ShintoPC Labs">
-                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-                    
-                    <div class="grid sm:grid-cols-2 gap-6">
+
+                <div
+                    class="glass-panel p-8 md:p-12 rounded-[2.5rem] border border-white/10 slide-right shadow-2xl relative">
+                    <div class="absolute top-0 right-10 w-24 h-1 bg-gradient-to-r from-primary to-transparent"></div>
+
+                    <h3 class="text-2xl font-bold mb-8 font-headline">Send a Transmission</h3>
+                    <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+                        <input type="hidden" name="access_key" value="d0182054-0355-4dcb-b8d7-21df9f432e8a">
+                        <input type="hidden" name="subject" value="New Transmission via ShintoPC Labs">
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label
+                                    class="label-sm text-on-surface-variant uppercase tracking-widest text-xs font-semibold px-1">Full
+                                    Name</label>
+                                <input name="name"
+                                    class="w-full bg-surface-container-lowest border border-white/10 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_15px_rgba(157,167,255,0.2)] text-on-surface py-3.5 px-4 transition-all"
+                                    placeholder="Enter name" type="text" required />
+                            </div>
+                            <div class="space-y-2">
+                                <label
+                                    class="label-sm text-on-surface-variant uppercase tracking-widest text-xs font-semibold px-1">Email
+                                    Node</label>
+                                <input name="email"
+                                    class="w-full bg-surface-container-lowest border border-white/10 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_15px_rgba(157,167,255,0.2)] text-on-surface py-3.5 px-4 transition-all"
+                                    placeholder="your@email.com" type="email" required />
+                            </div>
+                        </div>
                         <div class="space-y-2">
-                            <label class="label-sm text-on-surface-variant uppercase tracking-widest text-xs font-semibold px-1">Full Name</label>
-                            <input name="name" class="w-full bg-surface-container-lowest border border-white/10 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_15px_rgba(157,167,255,0.2)] text-on-surface py-3.5 px-4 transition-all" placeholder="Enter name" type="text" required/>
+                            <label
+                                class="label-sm text-on-surface-variant uppercase tracking-widest text-xs font-semibold px-1">Message
+                                Payload</label>
+                            <textarea name="message"
+                                class="w-full bg-surface-container-lowest border border-white/10 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_15px_rgba(157,167,255,0.2)] text-on-surface py-4 px-4 transition-all resize-none"
+                                placeholder="Provide details..." rows="5" required></textarea>
                         </div>
-                        <div class="space-y-2">
-                            <label class="label-sm text-on-surface-variant uppercase tracking-widest text-xs font-semibold px-1">Email Node</label>
-                            <input name="email" class="w-full bg-surface-container-lowest border border-white/10 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_15px_rgba(157,167,255,0.2)] text-on-surface py-3.5 px-4 transition-all" placeholder="your@email.com" type="email" required/>
-                        </div>
-                    </div>
-                    <div class="space-y-2">
-                        <label class="label-sm text-on-surface-variant uppercase tracking-widest text-xs font-semibold px-1">Message Payload</label>
-                        <textarea name="message" class="w-full bg-surface-container-lowest border border-white/10 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_15px_rgba(157,167,255,0.2)] text-on-surface py-4 px-4 transition-all resize-none" placeholder="Provide details..." rows="5" required></textarea>
-                    </div>
-                    <button class="w-full mt-4 py-4 bg-gradient-to-r from-indigo-500 via-violet-500 to-pink-500 text-white font-black uppercase tracking-widest text-sm rounded-xl active:scale-[0.98] transition-all btn-ripple btn-glow" type="submit">
-                        Initialize Transfer
-                    </button>
-                </form>
+                        <button
+                            class="w-full mt-4 py-4 bg-gradient-to-r from-indigo-500 via-violet-500 to-pink-500 text-white font-black uppercase tracking-widest text-sm rounded-xl active:scale-[0.98] transition-all btn-ripple btn-glow"
+                            type="submit">
+                            Initialize Transfer
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-container-lowest border-t border-white/5 py-12 px-6 md:px-10">
+        <div class="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex items-center gap-3 text-xl font-black font-headline tracking-tighter text-white">
+                <img src="./assets/logo.png" alt="ShintoPC Labs Logo" class="h-6 w-auto" />
+                ShintoPC Labs
+            </div>
+            <p class="font-inter text-[10px] md:text-xs uppercase tracking-[0.1em] text-slate-500 text-center">
+                © 2026 ShintoPC Labs. Crafted with precision.
+            </p>
+            <div
+                class="flex flex-wrap justify-center gap-8 font-inter text-xs uppercase tracking-[0.1em] font-semibold">
+                <a class="text-slate-500 hover:text-primary transition-colors" href="./privacy.html">Privacy Policy</a>
+                <a class="text-slate-500 hover:text-primary transition-colors" href="#contact">Contact</a>
             </div>
         </div>
-    </section>
-</main>
+    </footer>
 
-<!-- Footer -->
-<footer class="bg-surface-container-lowest border-t border-white/5 py-12 px-6 md:px-10">
-    <div class="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-        <div class="flex items-center gap-3 text-xl font-black font-headline tracking-tighter text-white">
-            <img src="./assets/logo.png" alt="ShintoPC Labs Logo" class="h-6 w-auto" />
-            ShintoPC Labs
-        </div>
-        <p class="font-inter text-[10px] md:text-xs uppercase tracking-[0.1em] text-slate-500 text-center">
-            © 2026 ShintoPC Labs. Crafted with precision.
-        </p>
-        <div class="flex flex-wrap justify-center gap-8 font-inter text-xs uppercase tracking-[0.1em] font-semibold">
-            <a class="text-slate-500 hover:text-primary transition-colors" href="./privacy.html">Privacy Policy</a>
-            <a class="text-slate-500 hover:text-primary transition-colors" href="#contact">Contact</a>
-        </div>
-    </div>
-</footer>
+    <!-- Shared Script -->
+    <script src="./main.js"></script>
 
-<!-- Shared Script -->
-<script src="./main.js"></script>
-
-<!-- Mobile theme toggle sync -->
-<script>
-  const mobileTgl = document.getElementById('theme-toggle-mobile');
-  if (mobileTgl) {
-    const updateMobileIcon = () => {
-      const icon = mobileTgl.querySelector('.material-symbols-outlined');
-      if (icon) icon.textContent = document.documentElement.classList.contains('light') ? 'dark_mode' : 'light_mode';
-    };
-    updateMobileIcon();
-    new MutationObserver(updateMobileIcon).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-  }
-</script>
+    <!-- Mobile theme toggle sync -->
+    <script>
+        const mobileTgl = document.getElementById('theme-toggle-mobile');
+        if (mobileTgl) {
+            const updateMobileIcon = () => {
+                const icon = mobileTgl.querySelector('.material-symbols-outlined');
+                if (icon) icon.textContent = document.documentElement.classList.contains('light') ? 'dark_mode' : 'light_mode';
+            };
+            updateMobileIcon();
+            new MutationObserver(updateMobileIcon).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+        }
+    </script>
 </body>
+
 </html>
