@@ -8,9 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const themeToggle = document.getElementById('theme-toggle');
   const html = document.documentElement;
 
-  // Always ensure dark mode is the default on page load
-  html.classList.remove('light');
-  html.classList.add('dark');
+  // Load saved theme or default to dark
+  const savedTheme = localStorage.getItem('shintopc-theme') || 'dark';
+  html.classList.remove('light', 'dark');
+  html.classList.add(savedTheme);
 
   // ---- tsParticles (Interactive Hero Background) ----
   const tsParticlesContainer = document.getElementById('tsparticles');
