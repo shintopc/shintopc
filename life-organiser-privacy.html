@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('shintopc-theme') || 'dark';
+            document.documentElement.classList.add(theme);
+        })();
+    </script>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <title>Privacy Policy - Life Organiser | ShintoPC Labs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+    <script src="./tailwind-config.js"></script>
+    <link href="./styles.css" rel="stylesheet"/>
+</head>
+<body class="bg-background text-on-surface font-body p-6 md:p-20 selection:bg-violet-500 selection:text-white">
+    <div class="max-w-4xl mx-auto glass-panel p-8 md:p-16 rounded-[2.5rem] border border-white/10 shadow-2xl relative overflow-hidden">
+        <a href="./life-organiser.html" class="inline-flex items-center gap-2 text-violet-500 hover:text-violet-400 font-bold uppercase tracking-widest text-xs mb-12 transition-colors">
+            <span class="material-symbols-outlined text-sm">arrow_back</span>
+            Back to App
+        </a>
+        
+        <h1 class="text-5xl md:text-6xl font-black font-headline tracking-tighter mb-4 text-glow">Privacy <span class="text-gradient from-violet-400 to-pink-500">Policy</span></h1>
+        <p class="text-on-surface-variant font-medium uppercase tracking-widest text-xs mb-12">Effective Date: May 15, 2026</p>
+        
+        <div class="space-y-12 text-on-surface-variant leading-relaxed">
+            <section>
+                <h2 class="text-2xl font-bold font-headline text-on-surface mb-6 flex items-center gap-4">
+                    <span class="w-8 h-8 rounded-lg bg-violet-500/20 flex items-center justify-center text-violet-500 text-sm">01</span>
+                    Introduction
+                </h2>
+                <p>Welcome to <strong>Life Organiser</strong>. Your privacy is our absolute priority. This application is designed as a secure, offline-first personal management tool. We believe that your personal data—finances, passwords, tasks, and documents—belongs solely to you.</p>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-bold font-headline text-on-surface mb-6 flex items-center gap-4">
+                    <span class="w-8 h-8 rounded-lg bg-violet-500/20 flex items-center justify-center text-violet-500 text-sm">02</span>
+                    Data Collection & Usage
+                </h2>
+                <p>Life Organiser stores all sensitive data locally on your device. We do not operate central servers that store your passwords or financial records.</p>
+                <ul class="list-disc ml-6 mt-4 space-y-3">
+                    <li><strong>Biometric Data:</strong> The app uses system-level Biometric APIs (Fingerprint/Face Unlock). We never see or store your biometric data; the authentication is handled entirely by your device's secure hardware.</li>
+                    <li><strong>Finance & Tasks:</strong> All records created within these modules are stored in an encrypted local database.</li>
+                    <li><strong>Passwords:</strong> Credentials stored in the Password Vault are encrypted using industry-standard protocols before being saved to local storage.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-bold font-headline text-on-surface mb-6 flex items-center gap-4">
+                    <span class="w-8 h-8 rounded-lg bg-violet-500/20 flex items-center justify-center text-violet-500 text-sm">03</span>
+                    Device Permissions
+                </h2>
+                <p>To provide its full suite of features, Life Organiser may request the following permissions:</p>
+                <ul class="list-disc ml-6 mt-4 space-y-3">
+                    <li><strong>Storage:</strong> Required to save and retrieve documents in the Documents module.</li>
+                    <li><strong>Biometrics:</strong> Required to secure the app and specific modules.</li>
+                    <li><strong>Notifications:</strong> Required for the Reminders module.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-bold font-headline text-on-surface mb-6 flex items-center gap-4">
+                    <span class="w-8 h-8 rounded-lg bg-violet-500/20 flex items-center justify-center text-violet-500 text-sm">04</span>
+                    Security Measures
+                </h2>
+                <p>Life Organiser includes several unique privacy features:</p>
+                <ul class="list-disc ml-6 mt-4 space-y-3">
+                    <li><strong>Screenshot Protection:</strong> By default, the app disables screenshots and hides content from the "Recent Apps" switcher to prevent accidental exposure of your data.</li>
+                    <li><strong>Auto-Lock:</strong> The app automatically re-locks upon being sent to the background or after a period of inactivity.</li>
+                </ul>
+            </section>
+
+            <section class="pt-12 border-t border-white/5">
+                <p class="text-sm italic">For any questions regarding this policy, please contact ShintoPC Labs at shintopclabs@gmail.com.</p>
+            </section>
+        </div>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>

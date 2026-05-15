@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('shintopc-theme') || 'dark';
+            document.documentElement.classList.add(theme);
+        })();
+    </script>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <title>Terms of Service - Life Organiser | ShintoPC Labs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+    <script src="./tailwind-config.js"></script>
+    <link href="./styles.css" rel="stylesheet"/>
+</head>
+<body class="bg-background text-on-surface font-body p-6 md:p-20 selection:bg-violet-500 selection:text-white">
+    <div class="max-w-4xl mx-auto glass-panel p-8 md:p-16 rounded-[2.5rem] border border-white/10 shadow-2xl relative overflow-hidden">
+        <a href="./life-organiser.html" class="inline-flex items-center gap-2 text-violet-500 hover:text-violet-400 font-bold uppercase tracking-widest text-xs mb-12 transition-colors">
+            <span class="material-symbols-outlined text-sm">arrow_back</span>
+            Back to App
+        </a>
+        
+        <h1 class="text-5xl md:text-6xl font-black font-headline tracking-tighter mb-4 text-glow">Terms of <span class="text-gradient from-violet-400 to-pink-500">Service</span></h1>
+        <p class="text-on-surface-variant font-medium uppercase tracking-widest text-xs mb-12">Last Updated: May 15, 2026</p>
+        
+        <div class="space-y-12 text-on-surface-variant leading-relaxed">
+            <section>
+                <h2 class="text-2xl font-bold font-headline text-on-surface mb-6 flex items-center gap-4">
+                    <span class="w-8 h-8 rounded-lg bg-violet-500/20 flex items-center justify-center text-violet-500 text-sm">01</span>
+                    Agreement
+                </h2>
+                <p>By using <strong>Life Organiser</strong>, you agree to these terms. Life Organiser is a productivity application provided by ShintoPC Labs. The app is provided "as is" with a focus on local security and user privacy.</p>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-bold font-headline text-on-surface mb-6 flex items-center gap-4">
+                    <span class="w-8 h-8 rounded-lg bg-violet-500/20 flex items-center justify-center text-violet-500 text-sm">02</span>
+                    User Responsibility
+                </h2>
+                <p>Because Life Organiser stores data locally and uses encryption:</p>
+                <ul class="list-disc ml-6 mt-4 space-y-3">
+                    <li><strong>PIN Recovery:</strong> ShintoPC Labs does not have access to your PIN or biometric data. If you lose your PIN and do not have biometrics enabled, we cannot recover your data.</li>
+                    <li><strong>Backups:</strong> You are responsible for maintaining backups of your documents and records using your device's backup systems.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-bold font-headline text-on-surface mb-6 flex items-center gap-4">
+                    <span class="w-8 h-8 rounded-lg bg-violet-500/20 flex items-center justify-center text-violet-500 text-sm">03</span>
+                    License
+                </h2>
+                <p>ShintoPC Labs grants you a personal, non-exclusive license to use the app for personal, non-commercial purposes. All intellectual property, including logos and app architecture, remains the property of ShintoPC Labs.</p>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-bold font-headline text-on-surface mb-6 flex items-center gap-4">
+                    <span class="w-8 h-8 rounded-lg bg-violet-500/20 flex items-center justify-center text-violet-500 text-sm">04</span>
+                    Limitation of Liability
+                </h2>
+                <p>ShintoPC Labs shall not be liable for any data loss resulting from hardware failure, forgotten PINs, or device theft. The app provides tools for security, but ultimate device security is the user's responsibility.</p>
+            </section>
+
+            <section class="pt-12 border-t border-white/5">
+                <p class="text-sm italic">For support or inquiries, please contact us at shintopclabs@gmail.com.</p>
+            </section>
+        </div>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
