@@ -1,189 +1,252 @@
 <!DOCTYPE html>
 <html class="dark scroll-smooth" lang="en">
+
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <link rel="icon" type="image/x-icon" href="./favicon.ico" />
     <title>Kinetix Speedometer | ShintoPC Labs</title>
-    
+
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;800;900&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;800;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+
     <script src="./tailwind-config.js"></script>
-    <link href="./styles.css" rel="stylesheet"/>
+    <link href="./styles.css" rel="stylesheet" />
 </head>
+
 <body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary">
 
-<!-- Top Navigation -->
-<nav class="fixed top-0 w-full z-50 bg-[#0e0e12]/70 backdrop-blur-[20px] shadow-[0_20px_40px_rgba(0,0,0,0.4)] transition-all duration-300 border-b border-white/5" id="navbar">
-    <div class="flex justify-between items-center px-6 md:px-10 py-5 max-w-[1440px] mx-auto">
-        <a href="./index.html" class="flex items-center gap-3 text-2xl font-black font-headline tracking-tighter text-[#4D61FF] hover:text-primary transition-colors">
-            <img src="./assets/logo.png" alt="ShintoPC Labs Logo" class="h-8 w-auto" />
-            ShintoPC Labs
-        </a>
-        
-        <div class="hidden md:flex gap-8 font-inter tracking-tight text-sm font-medium uppercase items-center">
-            <a class="text-white border-b-2 border-primary pb-1" href="./index.html#apps">Apps</a>
-            <a class="text-slate-400 hover:text-white transition-colors duration-300" href="./index.html#features">Features</a>
-            <a class="text-slate-400 hover:text-white transition-colors duration-300" href="./privacy.html">Privacy</a>
-            <a class="text-slate-400 hover:text-white transition-colors duration-300" href="./index.html#contact">Contact</a>
-            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
-                <span class="material-symbols-outlined text-lg">light_mode</span>
-            </button>
-        </div>
-        
-        <div class="flex md:hidden items-center gap-3">
-            <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Toggle Theme" onclick="document.getElementById('theme-toggle').click()">
-                <span class="material-symbols-outlined text-lg">light_mode</span>
-            </button>
-            <button id="hamburger-btn" aria-label="Toggle Menu" class="text-white p-2">
-                <span class="material-symbols-outlined text-3xl">menu</span>
-            </button>
-        </div>
-    </div>
-    
-    <div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full bg-[#0e0e12]/95 backdrop-blur-[20px] border-b border-white/10 shadow-xl flex flex-col items-center py-6 gap-6">
-        <a class="text-white font-bold uppercase tracking-widest text-sm" href="./index.html#apps">Apps</a>
-        <a class="text-slate-300 hover:text-white font-bold uppercase tracking-widest text-sm" href="./index.html#features">Features</a>
-        <a class="text-slate-300 hover:text-white font-bold uppercase tracking-widest text-sm" href="./privacy.html">Privacy Policy</a>
-        <a class="text-slate-300 hover:text-white font-bold uppercase tracking-widest text-sm" href="./index.html#contact">Contact</a>
-    </div>
-</nav>
-
-<main class="pt-32 pb-24">
-    <!-- Hero Section -->
-    <section class="max-w-[1440px] mx-auto px-6 md:px-10 grid grid-cols-1 lg:grid-cols-12 gap-12 mb-32 items-center relative">
-        <div class="lg:col-span-7 fade-in">
-            <a href="./index.html" class="label-sm uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary mb-6 flex items-center gap-2 font-semibold w-fit transition-colors">
-                <span class="material-symbols-outlined text-sm">arrow_back</span>
-                Back to Portfolio
+    <!-- Top Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-[#0e0e12]/70 backdrop-blur-[20px] shadow-[0_20px_40px_rgba(0,0,0,0.4)] transition-all duration-300 border-b border-white/5"
+        id="navbar">
+        <div class="flex justify-between items-center px-6 md:px-10 py-5 max-w-[1440px] mx-auto">
+            <a href="./index.html"
+                class="flex items-center gap-3 text-2xl font-black font-headline tracking-tighter text-[#4D61FF] hover:text-primary transition-colors">
+                <img src="./assets/logo.png" alt="ShintoPC Labs Logo" class="h-8 w-auto" />
+                ShintoPC Labs
             </a>
-            <span class="label-sm uppercase tracking-[0.2em] text-primary mb-4 block font-semibold">Flagship Application</span>
-            <h1 class="text-6xl md:text-7xl lg:text-8xl font-black font-headline tracking-tighter mb-6 text-on-surface leading-none text-glow">
-                KINETIX <br/><span class="text-gradient">SPEEDOMETER</span>
-            </h1>
-            <p class="text-lg md:text-xl text-on-surface-variant max-w-xl mb-10 leading-relaxed font-light">
-                The ultimate companion for telemetry. Real-time GPS tracking, HUD mode for nighttime driving, and analytics presented in a high-contrast, premium dark environment.
-            </p>
-            <div class="flex flex-wrap gap-4">
-                <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 glass-panel px-6 py-4 rounded-xl hover:border-primary/50 transition-all active:scale-95 group btn-ripple">
-                    <span class="material-symbols-outlined text-4xl text-white group-hover:text-primary transition-colors" style="font-variation-settings: 'FILL' 1;">play_apps</span>
-                    <div class="text-left">
-                        <p class="text-[0.65rem] uppercase tracking-widest text-on-surface-variant font-bold mb-0.5">Get it on</p>
-                        <p class="text-xl font-bold font-headline leading-none">Play Store</p>
-                    </div>
+
+            <div class="hidden md:flex gap-8 font-inter tracking-tight text-sm font-medium uppercase items-center">
+                <a class="text-white border-b-2 border-primary pb-1" href="./index.html#apps">Apps</a>
+                <a class="text-slate-400 hover:text-white transition-colors duration-300"
+                    href="./index.html#features">Features</a>
+                <a class="text-slate-400 hover:text-white transition-colors duration-300"
+                    href="./privacy.html">Privacy</a>
+                <a class="text-slate-400 hover:text-white transition-colors duration-300"
+                    href="./index.html#contact">Contact</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <span class="material-symbols-outlined text-lg">light_mode</span>
+                </button>
+            </div>
+
+            <div class="flex md:hidden items-center gap-3">
+                <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Toggle Theme"
+                    onclick="document.getElementById('theme-toggle').click()">
+                    <span class="material-symbols-outlined text-lg">light_mode</span>
+                </button>
+                <button id="hamburger-btn" aria-label="Toggle Menu" class="text-white p-2">
+                    <span class="material-symbols-outlined text-3xl">menu</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu"
+            class="md:hidden absolute top-full left-0 w-full bg-[#0e0e12]/95 backdrop-blur-[20px] border-b border-white/10 shadow-xl flex flex-col items-center py-6 gap-6">
+            <a class="text-white font-bold uppercase tracking-widest text-sm" href="./index.html#apps">Apps</a>
+            <a class="text-slate-300 hover:text-white font-bold uppercase tracking-widest text-sm"
+                href="./index.html#features">Features</a>
+            <a class="text-slate-300 hover:text-white font-bold uppercase tracking-widest text-sm"
+                href="./privacy.html">Privacy Policy</a>
+            <a class="text-slate-300 hover:text-white font-bold uppercase tracking-widest text-sm"
+                href="./index.html#contact">Contact</a>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-24">
+        <!-- Hero Section -->
+        <section
+            class="max-w-[1440px] mx-auto px-6 md:px-10 grid grid-cols-1 lg:grid-cols-12 gap-12 mb-32 items-center relative">
+            <div class="lg:col-span-7 fade-in">
+                <a href="./index.html"
+                    class="label-sm uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary mb-6 flex items-center gap-2 font-semibold w-fit transition-colors">
+                    <span class="material-symbols-outlined text-sm">arrow_back</span>
+                    Back to Portfolio
                 </a>
-            </div>
-        </div>
-        <div class="lg:col-span-5 relative slide-right mt-8 lg:mt-0">
-            <div class="absolute top-0 right-0 w-80 h-80 bg-primary/20 blur-[120px] rounded-full pointer-events-none"></div>
-            <div class="absolute bottom-0 left-0 w-80 h-80 bg-tertiary/10 blur-[120px] rounded-full pointer-events-none"></div>
-            <div class="relative glass-card p-4 rounded-[2.5rem] shadow-2xl transition-transform hover:rotate-0 duration-700 float-anim neon-glow-primary">
-                <img alt="Kinetix Speedometer App Interface" class="rounded-[2rem] w-full h-auto md:h-[600px] object-cover" src="./assets/kinetix-bg.png" />
-            </div>
-        </div>
-    </section>
-
-    <!-- App Highlights -->
-    <section class="max-w-[1440px] mx-auto px-6 md:px-10 mb-32">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-auto md:auto-rows-[240px]">
-            <!-- Main Highlight -->
-            <div class="md:col-span-8 md:row-span-2 glass-card rounded-[2.5rem] p-10 flex flex-col justify-between relative overflow-hidden group scale-in">
-                <div class="z-10 bg-[#0e0e12]/60 p-6 rounded-2xl backdrop-blur-md max-w-md border border-white/5">
-                    <span class="label-sm bg-primary/10 text-primary px-3 py-1.5 rounded-full mb-4 inline-block font-bold text-xs uppercase">Engine Features</span>
-                    <h3 class="text-4xl font-bold font-headline mb-4">Precision <br/>Telemetry</h3>
-                    <p class="text-on-surface-variant">Track your velocity with satellite pinpoint accuracy. The app intelligently switches to HUD mode allowing you to project your speed onto your windshield at night.</p>
+                <div class="flex items-center gap-6 mb-6">
+                    <div class="w-20 h-20 glass-panel border border-primary/20 rounded-2xl flex items-center justify-center overflow-hidden neon-glow-primary p-2">
+                        <img src="./assets/kinetixspeedometer_logo.png" alt="Kinetix Logo" class="w-full h-full object-contain" />
+                    </div>
+                    <span class="label-sm uppercase tracking-[0.2em] text-primary font-semibold">Flagship Application</span>
                 </div>
-                <div class="absolute right-0 bottom-0 w-full md:w-2/3 h-full opacity-60 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-0">
-                    <img alt="Dashboard" class="w-full h-full object-cover object-right" src="./assets/kinetix-bg.png" />
+                <h1
+                    class="text-6xl md:text-7xl lg:text-8xl font-black font-headline tracking-tighter mb-6 text-on-surface leading-none text-glow">
+                    KINETIX <br /><span class="text-gradient">SPEEDOMETER</span>
+                </h1>
+                <p class="text-lg md:text-xl text-on-surface-variant max-w-xl mb-10 leading-relaxed font-light">
+                    The ultimate companion for telemetry. Real-time GPS tracking, HUD mode for nighttime driving, and
+                    analytics presented in a high-contrast, premium dark environment.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="https://play.google.com/store/apps/details?id=com.kinetix.speedometer" target="_blank"
+                        rel="noopener noreferrer"
+                        class="flex items-center gap-4 glass-panel px-6 py-4 rounded-xl hover:border-primary/50 transition-all active:scale-95 group btn-ripple">
+                        <span
+                            class="material-symbols-outlined text-4xl text-white group-hover:text-primary transition-colors"
+                            style="font-variation-settings: 'FILL' 1;">play_apps</span>
+                        <div class="text-left">
+                            <p
+                                class="text-[0.65rem] uppercase tracking-widest text-on-surface-variant font-bold mb-0.5">
+                                Get it on</p>
+                            <p class="text-xl font-bold font-headline leading-none">Play Store</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="lg:col-span-5 relative slide-right mt-8 lg:mt-0">
+                <div
+                    class="absolute top-0 right-0 w-80 h-80 bg-primary/20 blur-[120px] rounded-full pointer-events-none">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 w-80 h-80 bg-tertiary/10 blur-[120px] rounded-full pointer-events-none">
+                </div>
+                <div
+                    class="relative glass-card p-4 rounded-[2.5rem] shadow-2xl transition-transform hover:rotate-0 duration-700 float-anim neon-glow-primary">
+                    <img alt="Kinetix Speedometer App Interface"
+                        class="rounded-[2rem] w-full h-auto md:h-[600px] object-cover" src="./assets/kinetix-bg.png" />
+                </div>
+            </div>
+        </section>
+
+        <!-- App Highlights -->
+        <section class="max-w-[1440px] mx-auto px-6 md:px-10 mb-32">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-auto md:auto-rows-[240px]">
+                <!-- Main Highlight -->
+                <div
+                    class="md:col-span-8 md:row-span-2 glass-card rounded-[2.5rem] p-10 flex flex-col justify-between relative overflow-hidden group scale-in">
+                    <div class="z-10 bg-[#0e0e12]/60 p-6 rounded-2xl backdrop-blur-md max-w-md border border-white/5">
+                        <span
+                            class="label-sm bg-primary/10 text-primary px-3 py-1.5 rounded-full mb-4 inline-block font-bold text-xs uppercase">Engine
+                            Features</span>
+                        <h3 class="text-4xl font-bold font-headline mb-4">Precision <br />Telemetry</h3>
+                        <p class="text-on-surface-variant">Track your velocity with satellite pinpoint accuracy. The app
+                            intelligently switches to HUD mode allowing you to project your speed onto your windshield
+                            at night.</p>
+                    </div>
+                    <div
+                        class="absolute right-0 bottom-0 w-full md:w-2/3 h-full opacity-60 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-0">
+                        <img alt="Dashboard" class="w-full h-full object-cover object-right"
+                            src="./assets/kinetix-bg.png" />
+                    </div>
+                </div>
+
+                <!-- Secondary 1 -->
+                <div
+                    class="md:col-span-4 md:row-span-1 glass-card rounded-[2.5rem] p-8 flex flex-col justify-center border-l-4 border-l-tertiary fade-in delay-100 hover:-translate-y-2 transition-all duration-500 group">
+                    <span
+                        class="material-symbols-outlined text-tertiary text-4xl mb-4 group-hover:scale-110 transition-transform"
+                        style="font-variation-settings: 'FILL' 1;">speed</span>
+                    <h4 class="text-2xl font-bold font-headline mb-2">Real-Time Metrics</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">0-100 analytics, trip history, and
+                        customizable gauges.</p>
+                </div>
+
+                <!-- Secondary 2 -->
+                <div
+                    class="md:col-span-4 md:row-span-1 glass-card rounded-[2.5rem] p-8 flex flex-col justify-center border-l-4 border-l-secondary fade-in delay-200 hover:-translate-y-2 transition-all duration-500 group">
+                    <span
+                        class="material-symbols-outlined text-secondary text-4xl mb-4 group-hover:scale-110 transition-transform"
+                        style="font-variation-settings: 'FILL' 1;">contrast</span>
+                    <h4 class="text-2xl font-bold font-headline mb-2">HUD Mode Projection</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Mirror your display for safe nighttime
+                        visibility.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Carousel -->
+        <section class="mb-32">
+            <div class="max-w-[1440px] mx-auto px-6 md:px-10 mb-12 flex justify-between items-end fade-in">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-black font-headline tracking-tight mb-2 text-glow">INTERFACE
+                    </h2>
+                    <p class="text-on-surface-variant uppercase text-xs tracking-[0.1em] font-semibold text-primary">
+                        Visual precision at every layer</p>
+                </div>
+                <!-- Carousel Arrows -->
+                <div class="hidden sm:flex gap-3">
+                    <button id="carousel-left" class="carousel-arrow" aria-label="Scroll Left">
+                        <span class="material-symbols-outlined">chevron_left</span>
+                    </button>
+                    <button id="carousel-right" class="carousel-arrow" aria-label="Scroll Right">
+                        <span class="material-symbols-outlined">chevron_right</span>
+                    </button>
                 </div>
             </div>
 
-            <!-- Secondary 1 -->
-            <div class="md:col-span-4 md:row-span-1 glass-card rounded-[2.5rem] p-8 flex flex-col justify-center border-l-4 border-l-tertiary fade-in delay-100 hover:-translate-y-2 transition-all duration-500 group">
-                <span class="material-symbols-outlined text-tertiary text-4xl mb-4 group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">speed</span>
-                <h4 class="text-2xl font-bold font-headline mb-2">Real-Time Metrics</h4>
-                <p class="text-sm text-on-surface-variant leading-relaxed">0-100 analytics, trip history, and customizable gauges.</p>
+            <!-- Horizontally scrollable container -->
+            <div class="flex gap-6 overflow-x-auto px-6 md:px-10 no-scrollbar pb-8 snap-x" id="gallery-carousel">
+                <div
+                    class="flex-shrink-0 w-[280px] md:w-[320px] glass-card p-2 rounded-[2.5rem] snap-start scale-in hover:-translate-y-2 transition-all duration-500">
+                    <img alt="App Interface 1" class="rounded-[2rem] h-[580px] w-full object-cover shadow-inner"
+                        src="./assets/6.jpg" />
+                </div>
+                <div
+                    class="flex-shrink-0 w-[280px] md:w-[320px] glass-card p-2 rounded-[2.5rem] snap-start scale-in hover:-translate-y-2 transition-all duration-500">
+                    <img alt="App Interface 2" class="rounded-[2rem] h-[580px] w-full object-cover shadow-inner"
+                        src="./assets/1.jpg" />
+                </div>
+                <div
+                    class="flex-shrink-0 w-[280px] md:w-[320px] glass-card p-2 rounded-[2.5rem] snap-start scale-in hover:-translate-y-2 transition-all duration-500">
+                    <img alt="App Interface 3" class="rounded-[2rem] h-[580px] w-full object-cover shadow-inner"
+                        src="./assets/2.jpg" />
+                </div>
+                <div
+                    class="flex-shrink-0 w-[280px] md:w-[320px] glass-card p-2 rounded-[2.5rem] snap-start scale-in hover:-translate-y-2 transition-all duration-500">
+                    <img alt="App Interface 4" class="rounded-[2rem] h-[580px] w-full object-cover shadow-inner"
+                        src="./assets/5.jpg" />
+                </div>
             </div>
+        </section>
+    </main>
 
-            <!-- Secondary 2 -->
-            <div class="md:col-span-4 md:row-span-1 glass-card rounded-[2.5rem] p-8 flex flex-col justify-center border-l-4 border-l-secondary fade-in delay-200 hover:-translate-y-2 transition-all duration-500 group">
-                <span class="material-symbols-outlined text-secondary text-4xl mb-4 group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">contrast</span>
-                <h4 class="text-2xl font-bold font-headline mb-2">HUD Mode Projection</h4>
-                <p class="text-sm text-on-surface-variant leading-relaxed">Mirror your display for safe nighttime visibility.</p>
+    <!-- Footer -->
+    <footer class="bg-surface-container-lowest border-t border-white/5 py-12 px-6 md:px-10">
+        <div class="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex items-center gap-3 text-xl font-black font-headline tracking-tighter text-white">
+                <img src="./assets/logo.png" alt="ShintoPC Labs Logo" class="h-6 w-auto" />
+                ShintoPC Labs
+            </div>
+            <p class="font-inter text-[10px] md:text-xs uppercase tracking-[0.1em] text-slate-500 text-center">
+                © 2026 ShintoPC Labs. Crafted with precision.
+            </p>
+            <div
+                class="flex flex-wrap justify-center gap-8 font-inter text-xs uppercase tracking-[0.1em] font-semibold">
+                <a class="text-slate-500 hover:text-primary transition-colors" href="./privacy.html">Privacy Policy</a>
+                <a class="text-slate-500 hover:text-primary transition-colors" href="./index.html#contact">Contact</a>
             </div>
         </div>
-    </section>
+    </footer>
 
-    <!-- Carousel -->
-    <section class="mb-32">
-        <div class="max-w-[1440px] mx-auto px-6 md:px-10 mb-12 flex justify-between items-end fade-in">
-            <div>
-                <h2 class="text-4xl md:text-5xl font-black font-headline tracking-tight mb-2 text-glow">INTERFACE</h2>
-                <p class="text-on-surface-variant uppercase text-xs tracking-[0.1em] font-semibold text-primary">Visual precision at every layer</p>
-            </div>
-            <!-- Carousel Arrows -->
-            <div class="hidden sm:flex gap-3">
-                <button id="carousel-left" class="carousel-arrow" aria-label="Scroll Left">
-                    <span class="material-symbols-outlined">chevron_left</span>
-                </button>
-                <button id="carousel-right" class="carousel-arrow" aria-label="Scroll Right">
-                    <span class="material-symbols-outlined">chevron_right</span>
-                </button>
-            </div>
-        </div>
-        
-        <!-- Horizontally scrollable container -->
-        <div class="flex gap-6 overflow-x-auto px-6 md:px-10 no-scrollbar pb-8 snap-x" id="gallery-carousel">
-            <div class="flex-shrink-0 w-[280px] md:w-[320px] glass-card p-2 rounded-[2.5rem] snap-start scale-in hover:-translate-y-2 transition-all duration-500">
-                <img alt="App Interface 1" class="rounded-[2rem] h-[580px] w-full object-cover shadow-inner" src="./assets/6.jpg" />
-            </div>
-            <div class="flex-shrink-0 w-[280px] md:w-[320px] glass-card p-2 rounded-[2.5rem] snap-start scale-in hover:-translate-y-2 transition-all duration-500">
-                <img alt="App Interface 2" class="rounded-[2rem] h-[580px] w-full object-cover shadow-inner" src="./assets/1.jpg" />
-            </div>
-            <div class="flex-shrink-0 w-[280px] md:w-[320px] glass-card p-2 rounded-[2.5rem] snap-start scale-in hover:-translate-y-2 transition-all duration-500">
-                <img alt="App Interface 3" class="rounded-[2rem] h-[580px] w-full object-cover shadow-inner" src="./assets/2.jpg" />
-            </div>
-            <div class="flex-shrink-0 w-[280px] md:w-[320px] glass-card p-2 rounded-[2.5rem] snap-start scale-in hover:-translate-y-2 transition-all duration-500">
-                <img alt="App Interface 4" class="rounded-[2rem] h-[580px] w-full object-cover shadow-inner" src="./assets/5.jpg" />
-            </div>
-        </div>
-    </section>
-</main>
+    <!-- Shared Script -->
+    <script src="./main.js"></script>
 
-<!-- Footer -->
-<footer class="bg-surface-container-lowest border-t border-white/5 py-12 px-6 md:px-10">
-    <div class="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-        <div class="flex items-center gap-3 text-xl font-black font-headline tracking-tighter text-white">
-            <img src="./assets/logo.png" alt="ShintoPC Labs Logo" class="h-6 w-auto" />
-            ShintoPC Labs
-        </div>
-        <p class="font-inter text-[10px] md:text-xs uppercase tracking-[0.1em] text-slate-500 text-center">
-            © 2026 ShintoPC Labs. Crafted with precision.
-        </p>
-        <div class="flex flex-wrap justify-center gap-8 font-inter text-xs uppercase tracking-[0.1em] font-semibold">
-            <a class="text-slate-500 hover:text-primary transition-colors" href="./privacy.html">Privacy Policy</a>
-            <a class="text-slate-500 hover:text-primary transition-colors" href="./index.html#contact">Contact</a>
-        </div>
-    </div>
-</footer>
-
-<!-- Shared Script -->
-<script src="./main.js"></script>
-
-<!-- Mobile theme toggle sync -->
-<script>
-  const mobileTgl = document.getElementById('theme-toggle-mobile');
-  if (mobileTgl) {
-    const updateMobileIcon = () => {
-      const icon = mobileTgl.querySelector('.material-symbols-outlined');
-      if (icon) icon.textContent = document.documentElement.classList.contains('light') ? 'dark_mode' : 'light_mode';
-    };
-    updateMobileIcon();
-    new MutationObserver(updateMobileIcon).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-  }
-</script>
+    <!-- Mobile theme toggle sync -->
+    <script>
+        const mobileTgl = document.getElementById('theme-toggle-mobile');
+        if (mobileTgl) {
+            const updateMobileIcon = () => {
+                const icon = mobileTgl.querySelector('.material-symbols-outlined');
+                if (icon) icon.textContent = document.documentElement.classList.contains('light') ? 'dark_mode' : 'light_mode';
+            };
+            updateMobileIcon();
+            new MutationObserver(updateMobileIcon).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+        }
+    </script>
 </body>
+
 </html>
