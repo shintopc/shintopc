@@ -31,17 +31,35 @@
         </a>
         <div class="hidden md:flex gap-8 font-inter tracking-tight text-sm font-medium uppercase items-center">
             <a class="text-slate-400 hover:text-white transition-colors duration-300" href="./index.html#apps">Apps</a>
-            <a class="text-slate-400 hover:text-white transition-colors duration-300" href="./privacy.html">Privacy</a>
+            <a class="text-white border-b-2 border-primary pb-1" href="./privacy.html">Privacy</a>
             <a class="text-slate-400 hover:text-white transition-colors duration-300" href="./index.html#contact">Contact</a>
             <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
                 <span class="material-symbols-outlined text-lg">light_mode</span>
             </button>
         </div>
+
+        <!-- Mobile Controls -->
+        <div class="flex md:hidden items-center gap-3">
+            <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Toggle Theme" onclick="document.getElementById('theme-toggle').click()">
+                <span class="material-symbols-outlined text-lg">light_mode</span>
+            </button>
+            <button id="hamburger-btn" aria-label="Toggle Menu" class="text-white p-2">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-[#0e0e12]/95 backdrop-blur-[20px] border-b border-white/10 shadow-xl flex flex-col items-center py-6 gap-6">
+        <a class="text-slate-300 hover:text-white font-bold uppercase tracking-widest text-sm" href="./index.html#apps">Apps</a>
+        <a class="text-white font-bold uppercase tracking-widest text-sm" href="./privacy.html">Privacy Policy</a>
+        <a class="text-slate-300 hover:text-white font-bold uppercase tracking-widest text-sm" href="./index.html#contact">Contact</a>
     </div>
 </nav>
 
 <main class="relative pt-32 pb-24 px-6 md:px-10 max-w-[1000px] mx-auto min-h-screen">
-    <section class="mb-20 space-y-6 fade-in">
+    <!-- Header Section -->
+    <section class="mb-16 space-y-6 fade-in">
         <a href="./kinetix-speedometer.html" class="label-sm uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary mb-6 flex items-center gap-2 font-semibold w-fit transition-colors">
             <span class="material-symbols-outlined text-sm">arrow_back</span>
             Back to App
@@ -51,38 +69,281 @@
             <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-primary">App-Specific Policy</span>
         </div>
         <h1 class="text-5xl md:text-7xl font-black font-headline tracking-tighter text-on-surface leading-[0.9] text-glow">
-            KINETIX <br/> <span class="text-gradient">PRIVACY</span>
+            KINETIX <br/> <span class="text-gradient">PRIVACY POLICY</span>
         </h1>
-        <p class="text-on-surface-variant text-lg max-w-2xl leading-relaxed mt-6 font-light">
-            Effective Date: April 2026. This policy governs the use of <strong>Kinetix Speedometer</strong> and how it handles your GPS and telemetry data.
+        <p class="text-slate-400 text-sm font-semibold tracking-wide uppercase">
+            Last Updated: <span class="text-on-surface">July 20, 2026</span>
+        </p>
+        <p class="text-on-surface-variant text-lg max-w-3xl leading-relaxed font-light">
+            Kinetix Speedometer (“the App”) is developed and published by <strong class="text-on-surface font-semibold">Shinto PC</strong>. 
+            This Privacy Policy explains how information is used when you use the App, your rights regarding that information, and how we protect your privacy.
+        </p>
+        <p class="text-on-surface-variant text-base leading-relaxed font-normal bg-surface-container-low p-4 rounded-xl border border-white/5">
+            By using Kinetix Speedometer, you agree to this Privacy Policy.
         </p>
     </section>
 
-    <div class="space-y-16 text-on-surface-variant leading-relaxed">
-        <section class="space-y-4">
-            <h2 class="text-2xl font-bold font-headline text-on-surface">1. GPS and Location Data</h2>
-            <p>Kinetix Speedometer requires access to your device's GPS and high-accuracy location services to calculate your real-time speed, distance traveled, and trip analytics. This data is processed <strong>entirely on your device</strong>.</p>
+    <!-- Policy Content -->
+    <div class="space-y-12 text-on-surface-variant leading-relaxed">
+        
+        <!-- Overview -->
+        <section class="space-y-4 p-6 rounded-2xl bg-surface-container-lowest/50 border border-white/5">
+            <h2 class="text-2xl font-bold font-headline text-on-surface flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">shield</span>
+                Overview
+            </h2>
+            <p>
+                Kinetix Speedometer is designed with privacy in mind. The App performs speed calculations, trip recording, mileage tracking, fuel logging, and route processing locally on your device.
+            </p>
+            <p>
+                We do not operate servers that collect or store your trips, GPS routes, mileage records, or personal driving history.
+            </p>
+        </section>
+
+        <!-- Information We Use -->
+        <section class="space-y-4 p-6 rounded-2xl bg-surface-container-lowest/50 border border-white/5">
+            <h2 class="text-2xl font-bold font-headline text-on-surface flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">my_location</span>
+                Information We Use
+            </h2>
+            
+            <div class="space-y-3">
+                <h3 class="text-lg font-semibold text-on-surface">Location Information</h3>
+                <p>The App requires location access to:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Display your speed in real time</li>
+                    <li>Calculate travel distance and average speed</li>
+                    <li>Determine heading and compass direction</li>
+                    <li>Record trip statistics and map routes</li>
+                    <li>Calculate mileage and fuel efficiency</li>
+                </ul>
+                <p class="pt-2">Location tracking begins only when you start a trip or use a GPS feature.</p>
+                <p>
+                    When recording an active trip, the App uses a <strong class="text-on-surface">Foreground Service</strong> with an ongoing notification to ensure uninterrupted trip recording while the app is minimized or the screen is off. Tracking stops immediately when you end the trip.
+                </p>
+                <p>
+                    Your precise location is processed strictly on your device and is never uploaded to our servers.
+                </p>
+            </div>
+        </section>
+
+        <!-- Data Stored on Your Device -->
+        <section class="space-y-4 p-6 rounded-2xl bg-surface-container-lowest/50 border border-white/5">
+            <h2 class="text-2xl font-bold font-headline text-on-surface flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">phonelink_setup</span>
+                Data Stored on Your Device
+            </h2>
+            <p>The App stores the following information locally on your device:</p>
             <ul class="list-disc pl-6 space-y-2">
-                <li>We do not store your location history on our servers.</li>
-                <li>Location data is never sold or shared with third-party advertising networks.</li>
-                <li>Background location access is used only if you explicitly enable it for continuous trip tracking.</li>
+                <li>Trip history and statistics</li>
+                <li>Route GPS points and GPX data</li>
+                <li>Mileage records and fuel logs</li>
+                <li>Vehicle information</li>
+                <li>Speedometer settings and preferences</li>
+            </ul>
+            <p class="pt-2">
+                This information remains on your device unless you explicitly choose to export or share it.
+            </p>
+        </section>
+
+        <!-- Export and Sharing -->
+        <section class="space-y-4 p-6 rounded-2xl bg-surface-container-lowest/50 border border-white/5">
+            <h2 class="text-2xl font-bold font-headline text-on-surface flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">share</span>
+                Export and Sharing
+            </h2>
+            <p>The App allows you to:</p>
+            <ul class="list-disc pl-6 space-y-2">
+                <li>Export trip data as GPX files.</li>
+                <li>Share GPX files using Android’s standard Share menu.</li>
+                <li>Share trip statistics or the application link.</li>
+            </ul>
+            <p class="pt-2">
+                These actions occur <strong class="text-on-surface">only</strong> when you explicitly choose them. Kinetix Speedometer never automatically uploads or shares your trips or routes.
+            </p>
+            <p>
+                If you share data using another application (email, messaging, cloud storage, etc.), that application’s privacy policy governs how the shared information is handled.
+            </p>
+        </section>
+
+        <!-- Advertising -->
+        <section class="space-y-4 p-6 rounded-2xl bg-surface-container-lowest/50 border border-white/5">
+            <h2 class="text-2xl font-bold font-headline text-on-surface flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">ads_click</span>
+                Advertising
+            </h2>
+            <p>The App uses <strong class="text-on-surface">Google AdMob</strong> to display advertisements.</p>
+            <p>Google AdMob may collect certain technical information including:</p>
+            <ul class="list-disc pl-6 space-y-2">
+                <li>Advertising ID</li>
+                <li>Device identifiers and model</li>
+                <li>App interaction information</li>
+                <li>Approximate location where permitted</li>
+            </ul>
+            <p class="pt-2">For more information, please review:</p>
+            <ul class="list-disc pl-6 space-y-2">
+                <li>
+                    <strong class="text-on-surface">Google Privacy Policy:</strong> 
+                    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-medium">https://policies.google.com/privacy</a>
+                </li>
+                <li>
+                    <strong class="text-on-surface">Google AdMob Information:</strong> 
+                    <a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-medium">https://support.google.com/admob/answer/6128543</a>
+                </li>
             </ul>
         </section>
 
-        <section class="space-y-4">
-            <h2 class="text-2xl font-bold font-headline text-on-surface">2. HUD Mode and Display</h2>
-            <p>The HUD (Head-Up Display) feature mirrors your screen output. No images or video of your device display are captured or transmitted by the application.</p>
+        <!-- Third-Party Services -->
+        <section class="space-y-4 p-6 rounded-2xl bg-surface-container-lowest/50 border border-white/5">
+            <h2 class="text-2xl font-bold font-headline text-on-surface flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">hub</span>
+                Third-Party Services
+            </h2>
+            <p>The App integrates the following third-party services:</p>
+            <ul class="list-disc pl-6 space-y-2">
+                <li>Google Play Services</li>
+                <li>Google AdMob</li>
+            </ul>
+            <p class="pt-2">
+                These services operate independently under their own privacy policies.
+            </p>
         </section>
 
-        <section class="space-y-4">
-            <h2 class="text-2xl font-bold font-headline text-on-surface">3. Analytics and Crash Reporting</h2>
-            <p>We use anonymized telemetry to improve app performance. This includes crash logs and device hardware details (e.g., OS version, sensor types). No personally identifiable information (PII) is attached to these reports.</p>
+        <!-- Data Sharing & Selling -->
+        <section class="space-y-4 p-6 rounded-2xl bg-surface-container-lowest/50 border border-white/5">
+            <h2 class="text-2xl font-bold font-headline text-on-surface flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">do_not_distribute</span>
+                Data Sharing & Selling
+            </h2>
+            <p>We do <strong class="text-on-surface">not</strong>:</p>
+            <ul class="list-disc pl-6 space-y-2">
+                <li>Sell personal information.</li>
+                <li>Sell location data.</li>
+                <li>Upload GPS routes or trip history.</li>
+                <li>Upload mileage or fuel records.</li>
+                <li>Share personal driving information with third parties.</li>
+            </ul>
         </section>
 
-        <section class="space-y-4">
-            <h2 class="text-2xl font-bold font-headline text-on-surface">4. Your Rights</h2>
-            <p>You can revoke GPS permissions at any time through your device settings, which will limit the app's functionality to offline features. You have the right to request information about any anonymized data logs we may hold.</p>
+        <!-- Notifications -->
+        <section class="space-y-4 p-6 rounded-2xl bg-surface-container-lowest/50 border border-white/5">
+            <h2 class="text-2xl font-bold font-headline text-on-surface flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">notifications_active</span>
+                Notifications
+            </h2>
+            <p>
+                During active trip recording, Android displays an ongoing Foreground Service notification. This notification is required by the Android operating system to keep GPS recording running reliably when the app is in the background.
+            </p>
         </section>
+
+        <!-- Permissions -->
+        <section class="space-y-4 p-6 rounded-2xl bg-surface-container-lowest/50 border border-white/5">
+            <h2 class="text-2xl font-bold font-headline text-on-surface flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">key</span>
+                Permissions
+            </h2>
+            <p>Depending on your device version, the App may request:</p>
+            <ul class="list-disc pl-6 space-y-2">
+                <li>
+                    <strong class="text-on-surface">Location Permission (Precise & Approximate):</strong> Required to calculate speed, distance, and record trip routes.
+                </li>
+                <li>
+                    <strong class="text-on-surface">Foreground Service Location:</strong> Required to maintain continuous trip recording while the screen is off or app is minimized.
+                </li>
+                <li>
+                    <strong class="text-on-surface">Notification Permission (Android 13+):</strong> Required to display the active trip tracking status notification.
+                </li>
+            </ul>
+            <p class="pt-2">
+                Permissions are requested only when needed for core functionality.
+            </p>
+        </section>
+
+        <!-- Log Data & Diagnostics -->
+        <section class="space-y-4 p-6 rounded-2xl bg-surface-container-lowest/50 border border-white/5">
+            <h2 class="text-2xl font-bold font-headline text-on-surface flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">bug_report</span>
+                Log Data & Diagnostics
+            </h2>
+            <p>
+                If the App crashes, third-party services (such as Google Play Services) may automatically collect technical diagnostics (e.g., device model, Android OS version, crash logs, and timestamps) to help improve application stability.
+            </p>
+        </section>
+
+        <!-- Data Security & Retention -->
+        <section class="space-y-4 p-6 rounded-2xl bg-surface-container-lowest/50 border border-white/5">
+            <h2 class="text-2xl font-bold font-headline text-on-surface flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">lock</span>
+                Data Security & Retention
+            </h2>
+            <p>
+                Because your trip information is stored locally on your device, you retain full control over your data.
+            </p>
+            <p>
+                We do not retain your trip data because it is not stored on our servers. Your locally stored information remains on your device until you delete individual trips, clear the App’s data, or uninstall the App.
+            </p>
+        </section>
+
+        <!-- Your Rights -->
+        <section class="space-y-6 p-6 rounded-2xl bg-surface-container-lowest/50 border border-white/5">
+            <h2 class="text-2xl font-bold font-headline text-on-surface flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">gavel</span>
+                Your Rights
+            </h2>
+            <p>You may, at any time:</p>
+            <ul class="list-disc pl-6 space-y-2">
+                <li>Stop trip recording.</li>
+                <li>Revoke permissions in Android Settings.</li>
+                <li>Export or share GPX files.</li>
+                <li>Delete individual trips or clear all trip history.</li>
+                <li>Clear application data or uninstall the App.</li>
+            </ul>
+
+            <div class="pt-4 space-y-3 border-t border-white/5">
+                <h3 class="text-lg font-semibold text-on-surface">GDPR & UK GDPR Compliance</h3>
+                <p>
+                    If you reside in the European Economic Area (EEA) or the United Kingdom, you have rights under applicable privacy laws. Because Kinetix Speedometer does not maintain user accounts or store trip data on external servers, you can exercise these rights directly by managing or deleting data stored on your device.
+                </p>
+            </div>
+
+            <div class="pt-4 space-y-3 border-t border-white/5">
+                <h3 class="text-lg font-semibold text-on-surface">California Privacy Rights (CCPA)</h3>
+                <p>
+                    If you are a California resident, the App does not sell your personal information. You can manage or delete your locally stored information directly within the App.
+                </p>
+            </div>
+
+            <div class="pt-4 space-y-3 border-t border-white/5">
+                <h3 class="text-lg font-semibold text-on-surface">Children’s Privacy</h3>
+                <p>
+                    The App is not intended for children under 13 years of age, and we do not knowingly collect personal information from children.
+                </p>
+            </div>
+        </section>
+
+        <!-- Changes to This Privacy Policy -->
+        <section class="space-y-4 p-6 rounded-2xl bg-surface-container-lowest/50 border border-white/5">
+            <h2 class="text-2xl font-bold font-headline text-on-surface flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">update</span>
+                Changes to This Privacy Policy
+            </h2>
+            <p>
+                We may update this Privacy Policy from time to time. Updates will be published with a revised “Last Updated” date.
+            </p>
+        </section>
+
+        <!-- Contact Us -->
+        <section class="space-y-4 p-6 rounded-2xl bg-surface-container-lowest/50 border border-primary/20 bg-primary/5">
+            <h2 class="text-2xl font-bold font-headline text-on-surface flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">mail</span>
+                Contact Us
+            </h2>
+            <div class="space-y-2 text-on-surface-variant">
+                <p><strong class="text-on-surface">Developer:</strong> Shinto PC</p>
+                <p><strong class="text-on-surface">Email:</strong> <a href="mailto:shintopc.dev@gmail.com" class="text-primary hover:underline font-medium">shintopc.dev@gmail.com</a></p>
+            </div>
+        </section>
+
     </div>
 </main>
 
@@ -99,5 +360,18 @@
 </footer>
 
 <script src="./main.js"></script>
+
+<!-- Mobile theme toggle sync -->
+<script>
+  const mobileTgl = document.getElementById('theme-toggle-mobile');
+  if (mobileTgl) {
+    const updateMobileIcon = () => {
+      const icon = mobileTgl.querySelector('.material-symbols-outlined');
+      if (icon) icon.textContent = document.documentElement.classList.contains('light') ? 'dark_mode' : 'light_mode';
+    };
+    updateMobileIcon();
+    new MutationObserver(updateMobileIcon).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+  }
+</script>
 </body>
 </html>
