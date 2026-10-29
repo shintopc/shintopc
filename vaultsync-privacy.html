@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('shintopc-theme') || 'dark';
+            document.documentElement.classList.add(theme);
+        })();
+    </script>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <title>Privacy Policy - VaultSync | ShintoPC Labs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="./tailwind-config.js"></script>
+    <link href="./styles.css" rel="stylesheet"/>
+</head>
+<body class="bg-background text-on-surface font-body p-6 md:p-20 selection:bg-teal-500 selection:text-white">
+    <div class="max-w-4xl mx-auto glass-panel p-8 md:p-16 rounded-[2.5rem] border border-white/10 shadow-2xl relative overflow-hidden">
+        <a href="./vaultsync.html" class="inline-flex items-center gap-2 text-teal-400 hover:text-teal-300 font-bold uppercase tracking-widest text-xs mb-12 transition-colors">
+            <span class="material-symbols-outlined text-sm">arrow_back</span>
+            Back to VaultSync
+        </a>
+        
+        <h1 class="text-5xl md:text-6xl font-black font-headline tracking-tighter mb-4 text-glow">Privacy <span class="text-gradient from-teal-400 to-cyan-400">Policy</span></h1>
+        <p class="text-on-surface-variant font-medium uppercase tracking-widest text-xs mb-12">Effective Date: October 2026 | VaultSync v1.0.0</p>
+        
+        <div class="space-y-12 text-on-surface-variant leading-relaxed">
+            <section class="space-y-4">
+                <h2 class="text-2xl font-bold font-headline text-on-surface">1. Core Philosophy: 100% Offline & Zero Telemetry</h2>
+                <p>VaultSync is architected on an uncompromising privacy foundation: <strong>we collect, transmit, and store zero personal data on external servers</strong>. The application contains no analytics tracking SDKs, no advertisement frameworks, and no telemetry pings. Your media and encryption credentials remain strictly within your physical possession.</p>
+            </section>
+
+            <section class="space-y-4">
+                <h2 class="text-2xl font-bold font-headline text-on-surface">2. Hardware-Backed Encryption</h2>
+                <p>All private photos, videos, and documents moved into the vault are encrypted using <strong>AES-256-GCM envelope encryption</strong>. Cryptographic keys are generated and sealed within your device's hardware-backed Android KeyStore (StrongBox or Trusted Execution Environment). ShintoPC Labs possesses no backdoor, no decryption keys, and no ability to access your locked data.</p>
+            </section>
+
+            <section class="space-y-4">
+                <h2 class="text-2xl font-bold font-headline text-on-surface">3. In-Memory Decryption & Flash Storage Protection</h2>
+                <p>When you preview videos and photos in VaultSync, decryption occurs dynamically in volatile memory (RAM) via Android's <code class="text-teal-300">MediaDataSource</code>. Plain-text versions of your encrypted media are never written to temporary flash storage cache files, eliminating forensic file recovery vulnerabilities.</p>
+            </section>
+
+            <section class="space-y-4">
+                <h2 class="text-2xl font-bold font-headline text-on-surface">4. Local Wi-Fi PC Sync Transport</h2>
+                <p>The PC Sync feature operates entirely across your <strong>local area network (LAN)</strong> via a local HTTP daemon running on your phone. No files are routed through third-party cloud relays or WAN internet servers. Authentication is established directly through a dynamic, cryptographically generated QR code displayed on your device.</p>
+            </section>
+
+            <section class="space-y-4">
+                <h2 class="text-2xl font-bold font-headline text-on-surface">5. Requested Permissions & Purpose</h2>
+                <ul class="list-disc pl-6 space-y-3">
+                    <li><strong>Manage External Storage (<code class="text-teal-300">MANAGE_EXTERNAL_STORAGE</code>):</strong> Required to organize files in your shared storage folder (<code class="text-teal-300">Documents/VaultSync/</code>) to guarantee vault survival across app uninstalls.</li>
+                    <li><strong>Camera:</strong> Used exclusively to scan on-screen pairing QR codes when connecting to local PC sync. No camera images or video feeds are ever stored or transmitted.</li>
+                    <li><strong>Foreground Service & WakeLock:</strong> Keeps background transfers active during high-bandwidth media streaming over local Wi-Fi without connection dropouts.</li>
+                    <li><strong>Biometric Authentication:</strong> Interfaces with Android's system BiometricPrompt API to verify your fingerprint or face locally before unwrapping KeyStore keys.</li>
+                </ul>
+            </section>
+
+            <section class="space-y-4">
+                <h2 class="text-2xl font-bold font-headline text-on-surface">6. Open Source Code Transparency</h2>
+                <p>VaultSync's complete source code is publicly accessible on GitHub (<a href="https://github.com/shintopc/VaultSync" target="_blank" rel="noopener noreferrer" class="text-teal-400 hover:underline">github.com/shintopc/VaultSync</a>) for independent security review and cryptographic auditing.</p>
+            </section>
+
+            <section class="space-y-4">
+                <h2 class="text-2xl font-bold font-headline text-on-surface">7. Contact Information</h2>
+                <p>If you have any questions or security inquiries regarding VaultSync's architecture, contact ShintoPC Labs at <a href="mailto:shintopc.dev@gmail.com" class="text-teal-400 hover:underline">shintopc.dev@gmail.com</a>.</p>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

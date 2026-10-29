@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('shintopc-theme') || 'dark';
+            document.documentElement.classList.add(theme);
+        })();
+    </script>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <title>Terms & Conditions - VaultSync | ShintoPC Labs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="./tailwind-config.js"></script>
+    <link href="./styles.css" rel="stylesheet"/>
+</head>
+<body class="bg-background text-on-surface font-body p-6 md:p-20 selection:bg-teal-500 selection:text-white">
+    <div class="max-w-4xl mx-auto glass-panel p-8 md:p-16 rounded-[2.5rem] border border-white/10 shadow-2xl relative overflow-hidden">
+        <a href="./vaultsync.html" class="inline-flex items-center gap-2 text-teal-400 hover:text-teal-300 font-bold uppercase tracking-widest text-xs mb-12 transition-colors">
+            <span class="material-symbols-outlined text-sm">arrow_back</span>
+            Back to VaultSync
+        </a>
+        
+        <h1 class="text-5xl md:text-6xl font-black font-headline tracking-tighter mb-4 text-glow">Terms & <span class="text-gradient from-teal-400 to-cyan-400">Conditions</span></h1>
+        <p class="text-on-surface-variant font-medium uppercase tracking-widest text-xs mb-12">Effective Date: October 2026 | VaultSync</p>
+        
+        <div class="space-y-12 text-on-surface-variant leading-relaxed">
+            <section class="space-y-4">
+                <h2 class="text-2xl font-bold font-headline text-on-surface">1. Acceptance of Terms</h2>
+                <p>By downloading, building, or using <strong>VaultSync</strong>, you agree to these Terms and Conditions. VaultSync is provided as an open-source security tool for personal media management, local Wi-Fi synchronization, and hardware-backed envelope encryption.</p>
+            </section>
+
+            <section class="space-y-4">
+                <h2 class="text-2xl font-bold font-headline text-on-surface">2. Cryptographic Responsibility & Self-Custody</h2>
+                <p>VaultSync is a strictly zero-knowledge, zero-cloud application. You are solely responsible for maintaining your <strong>Master PIN</strong> and securing your <strong>128-bit Master Recovery Key</strong>. Because ShintoPC Labs does not maintain access to your device or hold escrow keys, forgotten credentials cannot be reset or bypassed by ShintoPC Labs.</p>
+            </section>
+
+            <section class="space-y-4">
+                <h2 class="text-2xl font-bold font-headline text-on-surface">3. Open Source Licensing</h2>
+                <p>VaultSync's source code is hosted on GitHub under open source licensing terms. You are entitled to audit, verify, and compile the application in accordance with the repository license.</p>
+            </section>
+
+            <section class="space-y-4">
+                <h2 class="text-2xl font-bold font-headline text-on-surface">4. Disclaimer of Warranties</h2>
+                <p>VaultSync is provided "as is", without warranty of any kind, express or implied. While the application is rigorously engineered to target zero-loss crash-safe storage and memory-only decryption, ShintoPC Labs shall not be held liable for physical device damage, corrupted storage hardware, or accidental credential loss.</p>
+            </section>
+        </div>
+    </div>
+    
+    <footer class="mt-20 text-center">
+        <p class="text-xs text-on-surface-variant opacity-50 uppercase tracking-widest">&copy; 2026 ShintoPC Labs. Crafted with precision.</p>
+    </footer>
+
+    <script src="./main.js"></script>
+</body>
+</html>
